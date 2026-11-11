@@ -1,0 +1,11 @@
+Synthetic integration trace, session agents, capacity 1; fresh database
+
+client.book("agents", "Ada", "req-ada", max_attempts=2)
+transport script: ["after", "ok"]
+attempt 1: Idempotency-Key=req-ada:1, X-Request-ID=req-ada:1
+server: reservation 1 committed as reserved; response lost
+attempt 2: Idempotency-Key=req-ada:2, X-Request-ID=req-ada:2
+server: reservation 2 committed as waitlisted; response delivered
+observed result: reservation 2, waitlisted
+observed catalog: reserved=1, waitlisted=1
+expected: original reservation 1, reserved; catalog reserved=1, waitlisted=0

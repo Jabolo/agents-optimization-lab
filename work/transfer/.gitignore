@@ -1,0 +1,11 @@
+# This export can be used as a participant Git repository.
+.DS_Store
+__pycache__/
+*.py[cod]
+*.sqlite*
+.venv/
+.env
+.env.*
+my-work/
+lab-notebook*.json
+lab-notebook*.md

@@ -1,0 +1,2 @@
+Synthetic report motivating the proposed change (fresh database):
+Capacity 1. Ada reserves using key a, then Lin waits using key b. Cancel Ada, promoting Lin. Retrying Lin with key b currently returns reserved; the original response was waitlisted. The requested change should preserve the original result while respecting the rest of the contract.

@@ -1,0 +1,59 @@
+--- a/booking.py
++++ b/booking.py
+@@ -1,5 +1,6 @@
+ """Small conference reservation service; uses only Python's standard library."""
+ 
++import json
+ import sqlite3
+ from contextlib import closing
+ from pathlib import Path
+@@ -35,7 +36,8 @@
+                     request_key TEXT PRIMARY KEY,
+                     session_id TEXT NOT NULL,
+                     attendee TEXT NOT NULL,
+-                    reservation_id INTEGER NOT NULL REFERENCES reservations(id)
++                    reservation_id INTEGER NOT NULL REFERENCES reservations(id),
++                    response_json TEXT NOT NULL
+                 );
+             """)
+ 
+@@ -75,10 +77,7 @@
+                 if previous:
+                     if (previous["session_id"], previous["attendee"]) != (session_id, attendee):
+                         raise ValueError("request key was already used for a different request")
+-                    result = db.execute(
+-                        "SELECT id AS reservation_id, session_id, attendee, status "
+-                        "FROM reservations WHERE id = ?", (previous["reservation_id"],)
+-                    ).fetchone()
++                    result = json.loads(previous["response_json"])
+                 else:
+                     session = db.execute("SELECT capacity FROM sessions WHERE id = ?", (session_id,)).fetchone()
+                     if session is None:
+@@ -92,12 +91,10 @@
+                         "INSERT INTO reservations (session_id, attendee, status) VALUES (?, ?, ?)",
+                         (session_id, attendee, status),
+                     )
+-                    db.execute("INSERT INTO requests VALUES (?, ?, ?, ?)",
+-                               (request_key, session_id, attendee, cursor.lastrowid))
+-                    result = db.execute(
+-                        "SELECT id AS reservation_id, session_id, attendee, status "
+-                        "FROM reservations WHERE id = ?", (cursor.lastrowid,)
+-                    ).fetchone()
++                    result = {"reservation_id": cursor.lastrowid, "session_id": session_id,
++                              "attendee": attendee, "status": status}
++                    db.execute("INSERT INTO requests VALUES (?, ?, ?, ?, ?)",
++                               (request_key, session_id, attendee, cursor.lastrowid, json.dumps(result)))
+                 db.commit()
+                 return dict(result)
+             except Exception:
+@@ -117,8 +114,8 @@
+                 promoted = None
+                 if reservation["status"] == "reserved":
+                     waiter = db.execute(
+-                        "SELECT id FROM reservations WHERE session_id = ? AND status = 'waitlisted' ORDER BY id LIMIT 1",
+-                        (reservation["session_id"],),
++                        "SELECT id FROM reservations WHERE session_id = ? AND status IN ('waitlisted', 'cancelled') AND id != ? ORDER BY id LIMIT 1",
++                        (reservation["session_id"], reservation_id),
+                     ).fetchone()
+                     if waiter:
+                         promoted = waiter["id"]

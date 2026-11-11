@@ -1,0 +1,6 @@
+[
+  {"id": "canvas", "title": "Canvas", "starts_at": "2026-10-24T09:10:00+02:00"},
+  {"id": "bridge", "title": "Bridge", "starts_at": "2026-10-24T08:30:00+01:00"},
+  {"id": "atlas", "title": "Atlas", "starts_at": "2026-10-24T08:10:00+01:00"},
+  {"id": "delta", "title": "Delta", "starts_at": "2026-10-24T09:00:00+02:00"}
+]

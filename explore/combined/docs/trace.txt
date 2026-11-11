@@ -1,0 +1,8 @@
+Synthetic trace, fresh database, session agents, capacity 1.
+
+A. client.book("agents", "Ada", "req-ada") with transport ["after", "ok"]:
+   attempt 1 committed reservation 1 as reserved but response was lost;
+   attempt 2 produced reservation 2 as waitlisted. Expected one reservation and the original response.
+B. On a separate fresh database, Ada reserves a seat; Lin joins the waitlist with key req-lin.
+   Canceling Ada promotes Lin. Retrying Lin's original logical request returns reserved;
+   expected the original waitlisted response. The live catalog still shows Lin as reserved.

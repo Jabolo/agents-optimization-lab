@@ -1,0 +1,4 @@
+Release candidate: agenda.order_sessions
+Data available: sessions.json
+Release contract: docs/contract.md
+Request: docs/ticket.md

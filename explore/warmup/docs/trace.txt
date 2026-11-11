@@ -1,0 +1,16 @@
+Synthetic support report: a reservation retry gave a surprising response
+
+Session: agents, capacity 1
+All operations below use the same SQLite database; request keys are client-supplied.
+
+1. reserve("agents", "Ada", "req-ada")
+   -> {"reservation_id": 1, "session_id": "agents", "attendee": "Ada", "status": "reserved"}
+2. reserve("agents", "Lin", "req-lin")
+   -> {"reservation_id": 2, "session_id": "agents", "attendee": "Lin", "status": "waitlisted"}
+3. cancel(1)
+   -> {"cancelled": true, "promoted_reservation_id": 2}
+4. The client retries reserve("agents", "Lin", "req-lin") after losing the original response.
+   observed -> {"reservation_id": 2, "session_id": "agents", "attendee": "Lin", "status": "reserved"}
+   expected -> {"reservation_id": 2, "session_id": "agents", "attendee": "Lin", "status": "waitlisted"}
+
+The retry is the same logical request as step 2. No real attendee data is used.

@@ -1,0 +1,23 @@
+{
+  "catalog": [
+    {
+      "capacity": 1,
+      "id": "lab",
+      "reserved": 1,
+      "title": "Lab",
+      "waitlisted": 0
+    }
+  ],
+  "original": {
+    "attendee": "Lin",
+    "reservation_id": 2,
+    "session_id": "lab",
+    "status": "waitlisted"
+  },
+  "retry": {
+    "attendee": "Lin",
+    "reservation_id": 2,
+    "session_id": "lab",
+    "status": "waitlisted"
+  }
+}

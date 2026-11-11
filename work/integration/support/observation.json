@@ -1,0 +1,30 @@
+{
+  "headers": [
+    {
+      "Idempotency-Key": "visit-a:1",
+      "X-Request-ID": "visit-a:1"
+    },
+    {
+      "Idempotency-Key": "visit-a:2",
+      "X-Request-ID": "visit-a:2"
+    }
+  ],
+  "result": {
+    "attendee": "Ada",
+    "reservation_id": 2,
+    "session_id": "lab",
+    "status": "waitlisted"
+  },
+  "rows": [
+    [
+      1,
+      "Ada",
+      "reserved"
+    ],
+    [
+      2,
+      "Ada",
+      "waitlisted"
+    ]
+  ]
+}

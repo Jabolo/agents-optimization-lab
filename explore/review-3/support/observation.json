@@ -1,0 +1,17 @@
+{
+  "active_waiter_id": 3,
+  "cancelled_waiter_id": 2,
+  "catalog": [
+    {
+      "capacity": 1,
+      "id": "lab",
+      "reserved": 1,
+      "title": "Lab",
+      "waitlisted": 1
+    }
+  ],
+  "promotion": {
+    "cancelled": true,
+    "promoted_reservation_id": 2
+  }
+}

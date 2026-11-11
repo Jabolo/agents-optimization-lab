@@ -1,0 +1,25 @@
+{
+  "catalog": [
+    {
+      "capacity": 1,
+      "id": "lab",
+      "reserved": 1,
+      "title": "Lab",
+      "waitlisted": 0
+    }
+  ],
+  "first": {
+    "attendee": "Ada",
+    "reservation_id": 1,
+    "session_id": "lab",
+    "status": "reserved"
+  },
+  "reused_key": {
+    "returned": {
+      "attendee": "Ada",
+      "reservation_id": 1,
+      "session_id": "lab",
+      "status": "reserved"
+    }
+  }
+}

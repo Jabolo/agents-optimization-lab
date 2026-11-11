@@ -1,0 +1,24 @@
+{
+  "round": "round1",
+  "arm": "A",
+  "packet": null,
+  "prepared_utc": "2026-11-06T22:24:52Z",
+  "files": {
+    ".gitignore": "50b34376772f217956f81a17e00db5acaf24fbbda4bf710690db555d0bccaedc",
+    "DECISION-EXAMPLE.md": "e11dc260a85755626c27ba14b781005cc0c074827f827913d88a310ee529d85c",
+    "EXTENSIONS.md": "1f742dc44a9adcd8843898d415b6afbb0babebc86c24a9892427295aa1ffb18b",
+    "FALLBACK.md": "d75cbe95e00e4be87c7f4824db97319bfd31b98b108e83cf9072adbc57deb182",
+    "HELP.md": "fda3e66812f2af8892129dfb616e165ec401d3a8b7a5bccac84cac0ada224341",
+    "PROMPT-CARDS.md": "26f4ee7e217b6a53245d05ef40c03c98e11b72d5942012961857eaa54f310349",
+    "README.md": "6a4cbd0d64c44057d85c0819d8ca9867a387bfcf51badc8d09de1a2bb5c45544",
+    "RESOURCES.md": "02aebd2d22694d5f7888b4a890904631706df72107aa8ff68a7fd6c1987531d7",
+    "RESULT.md": "4e0c1eb99129c262eebe28a8101153f07e66ffc19cf4f9c91f80d16f74a81551",
+    "SAVE-RESUME.md": "f33694906bcdda59403b98d2efa7af44a2f43357a8b9f4e90f1cf8e303676b7b",
+    "TASK.md": "825bf69ed1abe69e615389db6b9e8178cf5c54b0f5ce7e6169c06914e9470284",
+    "booking.py": "9d110101a1d6decc02359ac7fd7970e8f5e38c07be7dc2dca2fd2d9851571a0c",
+    "docs/contract.md": "3c1e640eeecd499c17f70a4fcae5f65acc42a4dd58de9f8fbc7aabf97af66e1a",
+    "docs/trace.txt": "399f0d3f7d284adeb2251afb1f6ccc0aed290c5c1faba5360cb86ec7a431a239",
+    "smoke.py": "ad8b6b654a4a293d8e5201d47898bc6448364bcc7f00294fee9bcccb046d4218",
+    "tests/test_public.py": "de8f95dee6a4b94ae257cc8473c498549a45427d3345c79634381ab14d50b02c"
+  }
+}
