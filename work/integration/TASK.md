@@ -8,6 +8,16 @@ Use your agent fully. In the browser notebook or this case's `RESULT.md` (one re
 
 Repair the integration and add regression tests using your normal workflow. You may choose test-first.
 
+## Your agent has a result—what next?
+
+Choose a move for your current uncertainty:
+
+- **Inspect evidence:** What was actually checked, and what could still change your decision? Try [prompt card 2](PROMPT-CARDS.md) if useful.
+- **Try a workflow move:** If there is a gap, ask for one targeted observation or try another available approach. Predict what it could add, then inspect the actual result and extra effort. [Prompt card 4](PROMPT-CARDS.md) offers a way to choose the next move.
+- **Keep or stop:** If the result is sufficient for your scope, explain why another step is not worth it. An inconclusive result and next move are valid too.
+
+Compare what your usual workflow actually did with what you expected. A second attempt is optional; do not claim you compared approaches you did not run. To compare fairly later, use [extension 5](EXTENSIONS.md) with fresh starts and the same checks.
+
 ## Assess the report
 
 Before opening `NEXT.md`, record your current decision or what remains undecided. If your check is unfinished or has no usable output, record the partial result or “inconclusive / no evidence” and your next move. Then assess the report as a question: choose whether another observation is worth its time, inspect any result, and retain or revise your decision separately. If your agent accessed the report early, record that exposure; do not invent a pre-report prediction or decision.

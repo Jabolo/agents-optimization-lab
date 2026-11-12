@@ -1,6 +1,8 @@
 # Prompts for useful moments
 
-This lab is a retrospective on your tools and thinking, using real task results as evidence. Start with the workflow you actually use. When you notice a gap, choose a card, adapt it or use your own words. These examples are starting points, not tested recipes or required steps. If your agent already does the useful work, an extra instruction may add nothing.
+These prompt cards are optional scaffolding for common workshop moments — use, adapt, or ignore them. They are not required steps, and they contain no spoilers. If your usual prompt or workflow is already working, stick with it.
+
+This lab is a retrospective on your tools and thinking, using real task results as evidence. Start with the workflow you actually use. When you notice a gap, choose a card, adapt it or use your own words. If your agent already does the useful work, an extra instruction may add nothing.
 
 Before trying a change, briefly note what you expect it to improve. Afterward inspect the actual output: did you gain decision-relevant evidence, reduce effort, or just get a longer answer? Keep a successful habit if the observations support it. Your agent may help formulate your own judgment but cannot supply your personal experience.
 
@@ -55,16 +57,17 @@ the entire proposal. Do not assume a defect must exist.
 
 ## 4. We are looping or considering a stronger setup
 
+Also useful after an agent finishes quickly: first decide whether a new move could change your decision. Use, adapt or skip this prompt.
+
 ```text
 Briefly list the recent attempts and what each actually established.
-What unresolved question is blocking the decision? Choose a next action
-that could answer it, state the observable result we would expect, and use
-the time still available to obtain it if worthwhile. Consider a different
-tool or approach only if it addresses that gap. An inconclusive result or
-stopping is acceptable; do not invent timing, usage or cost.
+Which uncertainty could change our decision? Choose one small action that
+could address it and say what we expect it to establish. If worthwhile, try
+it and show the actual result, its limits and any extra effort. If another
+step is not worthwhile, explain why. Do not invent timing, usage or cost.
 ```
 
-**Look for:** a different source of useful information, or a reasoned stop. More effort, a different model, a skill, a tool call or a subagent may help or add overhead. Change a setting yourself where your client requires it; do not treat an agent's claim about a setting as verified configuration.
+**Look for:** a different source of useful information, or a reasoned stop. Did this move add decision-relevant evidence, duplicate what the agent already did, or cost more effort than it was worth? More effort, a different model, a skill, a tool call or a subagent may help or add overhead. Change a setting yourself where your client requires it; do not treat an agent's claim about a setting as verified configuration.
 
 | Choice to inspect | A question worth testing |
 | --- | --- |
@@ -74,7 +77,7 @@ stopping is acceptable; do not invent timing, usage or cost.
 | Delegation | Is there an independent question to answer, and who checks the integrated result? |
 | Tools and execution access | Did the agent actually use the tool and observe the relevant state? |
 
-For a comparison use the fresh-start experiment in EXTENSIONS.md. One attempt per approach supports a tentative personal choice, not a universal winner. Do not buy access or install something merely to use this card.
+For a comparison use the fresh-start experiment in [EXTENSIONS.md](EXTENSIONS.md). One attempt per approach supports a tentative personal choice, not a universal winner. Do not buy access or install something merely to use this card.
 
 ## 5. Resume in another context, or delegate a bounded question
 
@@ -107,7 +110,7 @@ hypotheses. Leave my personal keep/change/stop judgment for me to supply;
 help phrase it after I give it.
 ```
 
-Then make your own short entry in the browser notebook or `RESULT.md` (choose one):
+Then make your own short entry in the browser notebook or the case's `RESULT.md` (choose one):
 
 > My usual choice was ___. I tried or retained ___. I observed ___.
 > I will keep / change / stop ___ when ___, because ___ remains true or changes.

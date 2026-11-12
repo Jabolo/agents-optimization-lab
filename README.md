@@ -1,54 +1,64 @@
 # The Agents Optimization Lab
 
-Use the coding agent you already know, with any model, tools, skills or delegation available to you. Work individually, at your own pace. The aim is to make a useful decision about a result: choose a check, predict what it could show, inspect what actually happened, and decide what to do next. Keep the trade-offs in time, cost and quality visible where you can.
+Use the coding agent you already know, with any model, tools, skills, or delegation available to you. Work individually, at your own pace. Explore whether the way you work with your agent helps you reach a result worth accepting—and what you would keep or change next time. Choose a check, predict what it will show, inspect what actually happened, and decide what to do next while keeping time, cost, and quality trade-offs visible.
 
-Adapting and innovating are part of professional practice: when the model, tool, task or risk changes, revisit your assumptions. An improvement may remove an obsolete step; keeping a practice supported by evidence is also a valid choice.
+Adapting and innovating are part of professional practice: when the model, tool, task, or risk changes, revisit your assumptions. An improvement may remove an obsolete step; keeping a practice supported by evidence is also a valid choice.
 
-## Optional browser view
+## Start here
 
-Open `index.html` in this complete packet for readable materials, prompt-copy buttons and an optional personal notebook. It works locally without a server. Use that notebook **or** each case’s `RESULT.md`; browser notes do not update files or run checks. Export notes before closing, moving or updating the packet. Browser save is best effort, especially with multiple tabs; keep the exported Markdown/JSON as your portable record. All instructions and exercises also work directly from these files. [SAVE-RESUME.md](SAVE-RESUME.md) explains keeping a portable record in your working copy and reopening it.
+This codebase is a small, self-contained conference-booking and agenda-export service built with Python 3.11+ and SQLite. It has zero third-party dependencies, network requirements, or external API keys.
+
+1. **Give your coding agent the repository URL** `https://github.com/Jabolo/agents-optimization-lab` and ask it to help you get a local copy and start from `START-HERE.md`. Or get the code yourself:
+   - Clone the public repository:
+     ```sh
+     git clone https://github.com/Jabolo/agents-optimization-lab.git
+     cd agents-optimization-lab
+     ```
+   - *Or* download and extract `learner-lab.zip` into a fresh local folder. Open the extracted `learner-lab/` folder that contains `START-HERE.md`.
+
+2. **Open the local repository root, or the extracted `learner-lab/` folder, in your coding agent.** Ask it to help you choose a case, read its task and contract, and begin. Use its usual folder-opening method. You can also follow these instructions yourself.
+3. **Choose one workflow habit to watch.** Note what you expect it to help with, then work on the case. When you have a result, inspect the evidence and decide what to do next.
+4. **Keep a short record** in the browser notebook or the case's `RESULT.md`—one is enough. Stop or resume when useful; one complete decision loop is meaningful progress.
+
+For local checks, run `python3 smoke.py` from the chosen case folder (Windows: `py -3 smoke.py`). A passing smoke covers its examples, not the whole contract. The optional browser companion is `index.html` in the local packet; GitHub displays its source rather than running it.
+
+## Optional browser companion
+
+Open `index.html` locally in your web browser for readable materials, prompt-copy buttons, and an optional personal notebook. It works offline without a server. Use that notebook **or** each case’s `RESULT.md`; browser notes do not update files or run checks. Export notes before closing, moving, or updating the packet. Browser storage is best effort, especially across tabs; keep the exported Markdown/JSON as your portable record. All instructions and exercises also work directly from these Markdown files. [SAVE-RESUME.md](SAVE-RESUME.md) explains keeping a portable record in your working copy and reopening it.
 
 ## Choose your route
 
-After a short introduction, start wherever your interest takes you. Everything is available from the start:
+Start wherever your interest takes you—everything is available from the beginning:
 
-- Want to **repair an integration**? Choose [work/integration](work/integration/TASK.md): a retry after a lost response, followed by a report. Integration is initially displayed in the browser; you may start anywhere.
-- Want to **assess a proposal**? Choose [work/review](work/review/TASK.md): decide whether to accept a proposed change, then assess a report.
-- Want a **fresh agenda decision**? Choose [work/transfer](work/transfer/TASK.md): assess an agenda-export proposal and choose your own check.
-- [explore/warmup](explore/warmup/TASK.md), [explore/combined](explore/combined/TASK.md), [explore/review-1](explore/review-1/TASK.md) and [explore/review-3](explore/review-3/TASK.md): optional alternative cases. `combined` also has a report.
+### Core cases (`work/`)
+- **[work/integration](work/integration/TASK.md)**: Repair a retry after a lost response; assess a later report. (Default starting case displayed in the browser companion).
+- **[work/review](work/review/TASK.md)**: Decide whether to accept a proposed change touching retry responses and key conflicts; assess a later report.
+- **[work/transfer](work/transfer/TASK.md)**: Assess a new agenda-export proposal and choose your own check.
 
-Open the selected folder's `TASK.md`, `README.md` and contract. Each folder is usable on its own. Record actual evidence and your decision in the browser notebook or the selected case's `RESULT.md`; you do not need both. A single complete loop is a meaningful outcome. You may choose another case, pause with a partial result, or continue later.
+### Alternative explore cases (`explore/`)
+- **[explore/warmup](explore/warmup/TASK.md)**: Repair a starter booking-trace bug in reservation retries; this case has no later report.
+- **[explore/combined](explore/combined/TASK.md)**: Repair combined booking-trace and retry/transport issues; assess a later report.
+- **[explore/review-1](explore/review-1/TASK.md)**: Decide whether to accept a proposed change touching retry response caching; assess a later report.
+- **[explore/review-3](explore/review-3/TASK.md)**: Decide whether to accept a proposed change touching retry responses and cancellation queue promotion; assess a later report.
 
-A suggested 45-minute slot is 0–7 minutes for the introduction, 7–40 for individual work, and 40–45 for saving your place and reflecting. These are orientation, not synchronized deadlines. No one needs to finish the same cases or move together.
+Open your selected case folder to inspect its `TASK.md`, `README.md`, and contract. Each case folder is self-contained. Record actual evidence and your decision in the browser notebook or the case's `RESULT.md` (one record is enough). A single complete loop is a meaningful outcome; you can complete one case, leave a partial result, switch cases, or continue later.
+
+A suggested 45-minute slot is 0–7 minutes for introduction and orientation, 7–40 for individual work, and 40–45 for saving your place and reflecting. These are orientation, not synchronized deadlines. No one needs to finish the same cases or move together.
 
 ## Start a loop
 
-This is also a check of your tooling and thinking. The optional [decision example](DECISION-EXAMPLE.md) shows the shape of a record in an unrelated situation; your judgment is your own. Start with a workflow you actually use; then keep it or try a change for a reason. [PROMPT-CARDS.md](PROMPT-CARDS.md) offers optional prompts for moments such as “done”, a disputed review claim or a stalled attempt. Use, adapt or skip them and inspect what they actually contribute. You do not need to change a successful habit.
+Examine your own engineering habits and tooling under real conditions. The optional [decision example](DECISION-EXAMPLE.md) shows the shape of a record in an unrelated situation; your judgment is your own. Start with a workflow you actually use, then keep it or test a deliberate change. [PROMPT-CARDS.md](PROMPT-CARDS.md) offers optional prompts for moments such as “done”, a disputed review claim, or a stalled attempt. You do not need to change a successful habit.
 
-1. Note a habit you actually use and your expectation. If you have no usual move, say so and choose one for this attempt. Your agent can help express your thoughts but cannot invent them.
-2. Pick a condition and a check. Predict what result would support acceptance, and what it would establish.
-3. Work with your agent and inspect the real output. Save the command or evidence, its scope and remaining uncertainty. If nothing usable has returned, record partial work or **inconclusive / no evidence**.
-4. Decide to accept, reject, seek another observation, change approach or stop, and explain why. Note time through the decision if observed or estimated and reliable cost or usage if available; otherwise mark unknown or N/A.
-5. Where `NEXT.md` exists, first record your current decision or what remains undecided, then open it. Treat its report as a question to investigate, not an answer. Assess it separately and keep or revise your decision. An agent might read it early: record that exposure and do not invent an earlier prediction or decision.
+1. **Habit & expectation:** Choose one part of your usual agent workflow to pay attention to. For example: short or detailed instructions; asking for evidence before edits; a skill, fresh session, model or delegation; or how you review tests. Note “Usually I ___ → I expect ___.” “I let my agent decide” and “I have no usual move” are valid; in the latter case choose a move for this attempt. Your agent can help express your thoughts, but cannot invent them.
+2. **Condition & prediction:** Pick a contract condition and an executable check. Predict what result would support acceptance, and what it would establish.
+3. **Execute & inspect evidence:** Work with your agent and inspect the real output. Save the command, evidence, scope, and remaining uncertainty (or record **inconclusive / no evidence** if nothing usable returned).
+4. **Decide & evaluate trade-offs:** Decide to accept, reject, seek another observation, change approach, or stop, and explain why. Note time through the decision if observed or estimated, and reliable cost or usage if available; otherwise mark unknown or N/A.
+5. **Assess `NEXT.md` (where present):** Where `NEXT.md` exists, first record your current decision or what remains undecided, then open it. Treat its report as a question to investigate, not an answer. Assess it separately with evidence and keep or revise your decision. (If your agent accessed it early, record that exposure; do not invent an earlier prediction or decision).
 
-“Works on my prompt” is a hypothesis. Agent finished already? Consider what result could change your decision and whether checking it is worth the time. You can accept within the evidence's scope, check further, record an inconclusive result or stop. Optionally note what change would make you revisit your practice, what you would check and what decision that observation might affect.
+“Works on my prompt” is a hypothesis. When your agent has a result, compare what your workflow actually did with your expectation. You may inspect the evidence, try a small workflow move if it addresses a gap, or stop if the result is sufficient for your scope. Record what happened and whether any extra effort was worthwhile. A justified stop or an inconclusive result is a complete, valid loop; you need not run a second attempt.
 
-Python 3.11+ and a terminal are needed for local checks. From the extracted packet root, these commands open the integration folder and run its smoke check:
+An observation of your usual workflow, a small intervention, and a comparison of two approaches are different things. For a direct comparison, use equivalent fresh starts and checks; [EXTENSIONS.md](EXTENSIONS.md) explains how. One attempt per approach supports only a tentative choice for this task.
 
-```sh
-cd work/integration
-python3 --version
-python3 smoke.py
-```
-
-On Windows, from the packet root:
-
-```powershell
-cd work\integration
-py -3 --version
-py -3 smoke.py
-```
-
-For another case, replace `work/integration` with its path above; run commands from that case folder. Open that same folder in your existing agent using its usual folder-opening method, and ask it to work there. See [HELP.md](HELP.md) for setup, preserving work and recovery. [RESOURCES.md](RESOURCES.md) and [EXTENSIONS.md](EXTENSIONS.md) provide further material. Use disposable copies without secrets.
+For another case, open its folder in your existing agent and run commands from that folder. See [HELP.md](HELP.md) for setup, preserving work, and recovery. [RESOURCES.md](RESOURCES.md) and [EXTENSIONS.md](EXTENSIONS.md) provide further material. Use disposable copies without secrets.
 
 The cases share an application and some working code. You and your agent may reuse it. Record reuse or prior exposure when interpreting a comparison; verifying an assembled solution can be a useful next experiment.

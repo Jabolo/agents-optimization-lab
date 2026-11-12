@@ -14,7 +14,7 @@ A hosted page and a local file can use different browser storage. Download and e
 
 ## RESULT.md → files in your working copy
 
-Write directly in the case's `RESULT.md`, with your agent's help if useful. Save the file. Keep the whole working folder, including your code, tests and any output you intentionally recorded. No browser import is needed. You do not also need to fill the browser notebook.
+Write directly in the case's `RESULT.md`, with your agent's help if useful. Save the file. Keep the whole working folder, including your code, tests and any output you intentionally recorded. In a Git clone, `RESULT.md` is tracked: review staged changes before publishing a fork or sharing a commit, and keep personal notes private unless you intend to share them. No browser import is needed. You do not also need to fill the browser notebook.
 
 ## Another packet version or interrupted storage
 
