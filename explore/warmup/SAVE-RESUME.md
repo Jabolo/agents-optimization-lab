@@ -6,11 +6,11 @@ Choose the browser notebook **or** the case's `RESULT.md`. Neither is a required
 
 1. Keep one editing tab. Browser autosave is a convenience; tabs/copies can overwrite each other before a conflict warning. Export before closing, switching browsers or moving the packet.
 2. Choose **Export readable notes** and **Export backup (.json)**. Confirm the downloaded files exist. The first is readable by you and your agent; the second can restore the notebook. Neither edits `RESULT.md` automatically.
-3. Move both files into a folder you create named `my-work` at the root of your extracted packet. Give copies descriptive names, such as `integration-paused.md` and `integration-paused.json`; retain earlier versions. This folder and default notebook download names are ignored by the supplied `.gitignore`. They are your local work, not shared workshop material.
+3. Move both files into a folder you create named `my-work` at the root of your local repository. Give copies descriptive names, such as `integration-paused.md` and `integration-paused.json`; retain earlier versions. This folder and default notebook download names are ignored by the supplied `.gitignore`. They are your local work, not shared workshop material.
 4. Before moving any code, note the case folder, actual code version or clearly named copy, last command/result, remaining uncertainty and next intended move. Export identifiers describe the packet at packaging, not code you subsequently changed.
 5. To resume, reopen the same packet's `index.html`, choose **Import backup**, select the JSON and review the preview. Export current notes first if you need to keep them; confirmation replaces this browser notebook. Import restores notes, not code or files.
 
-A hosted page and a local file can use different browser storage. Download and extract the packet to work with your agent. Export/import transfers notes between those views when their packet identity matches. Work in the folder whose code you actually assessed.
+A hosted page and a local file can use different browser storage. Clone the repository to work with your agent. Export/import transfers notes between those views when their packet identity matches. Work in the folder whose code you actually assessed.
 
 ## RESULT.md → files in your working copy
 

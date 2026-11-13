@@ -4,9 +4,7 @@ Work individually and at your own pace. A partial result or “inconclusive / no
 
 ## Setup
 
-You can work from either distribution:
-- **GitHub repository:** Clone via `git clone https://github.com/Jabolo/agents-optimization-lab` (or download and extract the repository ZIP).
-- **Workshop archive:** Download and extract `learner-lab.zip`.
+Give your agent the [public repository](https://github.com/Jabolo/agents-optimization-lab), or clone it with `git clone https://github.com/Jabolo/agents-optimization-lab`. If Git is unavailable, GitHub's **Code → Download ZIP** provides a snapshot; extract it and open the folder containing `START-HERE.md`. A snapshot does not include Git history.
 
 ### Browser companion
 
@@ -14,7 +12,7 @@ Open `index.html` locally in your web browser (double-click the file or open `fi
 
 ### Terminal smoke check
 
-In a terminal opened at the repository or extracted packet root, choose a case and run its smoke check:
+In a terminal opened at the local repository folder, choose a case and run its smoke check:
 - **Core cases:** `work/integration`, `work/review`, `work/transfer`
 - **Exploration cases:** `explore/warmup`, `explore/combined`, `explore/review-1`, `explore/review-3`
 
@@ -38,8 +36,6 @@ py -3 smoke.py
 
 In your existing authenticated coding agent (VS Code, Cursor, Windsurf, Claude Code, Antigravity, Gemini CLI, etc.), either keep the repository root open and name the chosen case folder (for example, `work/integration/`) or open that case folder directly. Ask your agent to read its `TASK.md` and `docs/contract.md`, and confirm the case directory for commands and results. Use disposable local files without credentials or secrets.
 
-For a standalone single-case ZIP, open its extracted case folder directly in your terminal and agent; run `python3 --version` and `python3 smoke.py` there (on Windows, `py -3 --version` and `py -3 smoke.py`). The browser notebook is available in the complete packet.
-
 ## Stuck or interrupted
 
 - Read the case's trace and contract; choose a condition and predict an informative check. Save actual output, uncertainty and your next move, even if no check completes.
@@ -51,7 +47,7 @@ For a standalone single-case ZIP, open its extracted case folder directly in you
 
 Do not delete or overwrite your existing folder. A new branch carries the current working-tree edits; a normal stash can leave untracked files. Neither alone guarantees a fresh start.
 - **Git clone:** Ask your agent to create a separate fresh clone or Git worktree at the same recorded starting commit, in a new directory. If the public repository has changed, identify and use the original commit rather than assuming its latest version is the same.
-- **Extracted archive:** Extract the same `learner-lab.zip` again into a new, clearly named directory.
+- **GitHub snapshot:** Save the original downloaded snapshot and extract it again into a new, clearly named directory. A later download of the main branch may contain different files.
 For a comparison, verify that both starting copies contain the same task, contract and relevant files before running either approach. Identify the folders and versions in your record and associate each output and decision with the version it actually tested. A copy of your changed folder preserves that work, but is not a fresh starting point. Copy only work you intentionally want to continue; retain the original as your record.
 
 ## Save and resume

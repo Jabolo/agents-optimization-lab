@@ -8,4 +8,4 @@ Choose a condition and a check; predict what result would support acceptance. In
 
 If this case has `NEXT.md`, record your current decision or what is still undecided before opening it. Then assess the report as a question, using evidence, and decide whether to retain or revise your decision. If your agent accessed it early, record that exposure; do not reconstruct a pre-report prediction or decision.
 
-Python 3.11+ is needed for local checks. From this folder run `python3 smoke.py`; on Windows use `py -3 smoke.py`. A passing smoke is bounded evidence, not proof of the whole contract. For optional help see `support/READ-ME-FIRST.md` where present, or `FALLBACK.md`. Preserve your work and use a fresh extracted copy if you need a reset.
+Python 3.11+ is needed for local checks. From this folder run `python3 smoke.py`; on Windows use `py -3 smoke.py`. A passing smoke is bounded evidence, not proof of the whole contract. For optional help see `support/READ-ME-FIRST.md` where present, or `FALLBACK.md`. Preserve your work and use a fresh copy at the same starting version if you need a reset.

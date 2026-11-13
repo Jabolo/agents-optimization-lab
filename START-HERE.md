@@ -14,9 +14,9 @@ This codebase is a small, self-contained conference-booking and agenda-export se
      git clone https://github.com/Jabolo/agents-optimization-lab.git
      cd agents-optimization-lab
      ```
-   - *Or* download and extract `learner-lab.zip` into a fresh local folder. Open the extracted `learner-lab/` folder that contains `START-HERE.md`.
+   - If Git is unavailable, GitHub's **Code → Download ZIP** provides a repository snapshot. Extract it and open the folder containing `START-HERE.md`.
 
-2. **Open the local repository root, or the extracted `learner-lab/` folder, in your coding agent.** Ask it to help you choose a case, then name that case folder when asking it to read the task and contract. You may keep the root open or open the chosen case directly; use your agent's usual folder-opening method. You can also follow these instructions yourself.
+2. **Open the local repository folder in your coding agent.** Ask it to help you choose a case, then name that case folder when asking it to read the task and contract. You may keep the root open or open the chosen case directly; use your agent's usual folder-opening method. You can also follow these instructions yourself.
 3. **Choose one workflow habit to watch.** Note what you expect it to help with, then work on the case. When you have a result, inspect the evidence and decide what to do next.
 4. **Keep a short record** in the browser notebook or the case's `RESULT.md`—one is enough. Stop or resume when useful; one complete decision loop is meaningful progress.
 
