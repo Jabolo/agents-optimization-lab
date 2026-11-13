@@ -2,6 +2,8 @@
 
 Use this file **or** the browser notebook (`index.html`); one record is enough. Your agent can help phrase your thoughts, but your habits and decisions come from you. Short notes, an unfinished run, and **inconclusive / no evidence** are all valid.
 
+In a Git clone this file is tracked, so review staged changes before sharing a commit or fork.
+
 - **My usual workflow and expectation:** ___
   *(Or name a choice for this attempt if you have no usual habit.)*
 - **The condition, check and predicted result:** ___

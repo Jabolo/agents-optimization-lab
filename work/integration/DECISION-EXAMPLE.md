@@ -1,6 +1,18 @@
-# Optional worked decision: copying a report on Windows
+# Optional worked decisions
 
-This is a maintainer example from outside the lab cases. It shows one way to connect an observation to a bounded decision; it is not another exercise or a form you need to complete. Supply your own habit and personal rule from your own work.
+These maintainer examples are from outside the lab cases. They show ways to connect an observation to a bounded decision; they are not another exercise or a form you need to complete. Supply your own habit and personal rule from your own work.
+
+## Workflow choice: evidence before recovery
+
+While maintaining AI Mileage, an agent proposed backup recovery after a legacy usage file failed to match current event IDs.
+
+**Choice and question:** Before restoring anything, ask what previously accepted records are actually missing. A read-only check of retained state and lineage could help answer that question without restoring a backup.
+
+**Observation and decision:** The failed match did not invalidate previously accepted counters. A read-only preservation check of already-ingested historical events reported no missing event states or changed accepted counter versions within its scope. No specific missing set of accepted events had been demonstrated, and the team did not download or restore a backup database. They also added an explicit evidence gate for future recovery decisions.
+
+**Limits:** A stored-lineage check does not re-prove source authenticity or establish complete account history. Human time and cost were not measured. Decide for your own task whether a check like this is worthwhile; do not treat recovery or an extra audit as a universal next step.
+
+## Checking a report copy on Windows
 
 **Condition and expectation:** A command that copies a report to a fresh destination should preserve the source bytes. A byte-for-byte comparison should find the same content and line endings at both paths.
 

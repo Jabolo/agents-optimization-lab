@@ -18,7 +18,7 @@ This codebase is a small, self-contained conference-booking and agenda-export se
 
 2. **Open the local repository folder in your coding agent.** Ask it to help you choose a case, then name that case folder when asking it to read the task and contract. You may keep the root open or open the chosen case directly; use your agent's usual folder-opening method. You can also follow these instructions yourself.
 3. **Choose one workflow habit to watch.** Note what you expect it to help with, then work on the case. When you have a result, inspect the evidence and decide what to do next.
-4. **Keep a short record** in the browser notebook or the case's `RESULT.md`—one is enough. Stop or resume when useful; one complete decision loop is meaningful progress.
+4. **Keep a short record** in the browser notebook or the case's `RESULT.md`—one is enough. In a Git clone, `RESULT.md` is tracked: review staged changes before sharing a commit or fork. Stop or resume when useful; one complete decision loop is meaningful progress.
 
 For local checks, run `python3 smoke.py` from the chosen case folder (Windows: `py -3 smoke.py`). A passing smoke covers its examples, not the whole contract. The optional browser companion is `index.html` in the local packet; GitHub displays its source rather than running it.
 
@@ -47,7 +47,7 @@ A suggested 45-minute slot is 0–7 minutes for introduction and orientation, 7�
 
 ## Start a loop
 
-Examine your own engineering habits and tooling under real conditions. The optional [decision example](DECISION-EXAMPLE.md) shows the shape of a record in an unrelated situation; your judgment is your own. Start with a workflow you actually use, then keep it or test a deliberate change. [PROMPT-CARDS.md](PROMPT-CARDS.md) offers optional prompts for moments such as “done”, a disputed review claim, or a stalled attempt. You do not need to change a successful habit.
+Examine your own engineering habits and tooling under real conditions. The optional [decision examples](DECISION-EXAMPLE.md) show a workflow choice and a bounded check in unrelated situations; your judgment is your own. Start with a workflow you actually use, then keep it or test a deliberate change. [PROMPT-CARDS.md](PROMPT-CARDS.md) offers optional prompts for moments such as “done”, a disputed review claim, or a stalled attempt. You do not need to change a successful habit.
 
 1. **Habit & expectation:** Choose one part of your usual agent workflow to pay attention to. For example: short or detailed instructions; asking for evidence before edits; a skill, fresh session, model or delegation; or how you review tests. Note “Usually I ___ → I expect ___.” “I let my agent decide” and “I have no usual move” are valid; in the latter case choose a move for this attempt. Your agent can help express your thoughts, but cannot invent them.
 2. **Condition & prediction:** Pick a contract condition and an executable check. Predict what result would support acceptance, and what it would establish.
@@ -56,6 +56,8 @@ Examine your own engineering habits and tooling under real conditions. The optio
 5. **Assess `NEXT.md` (where present):** Where `NEXT.md` exists, first record your current decision or what remains undecided, then open it. Treat its report as a question to investigate, not an answer. Assess it separately with evidence and keep or revise your decision. (If your agent accessed it early, record that exposure; do not invent an earlier prediction or decision).
 
 “Works on my prompt” is a hypothesis. When your agent has a result, compare what your workflow actually did with your expectation. You may inspect the evidence, try a small workflow move if it addresses a gap, or stop if the result is sufficient for your scope. Record what happened and whether any extra effort was worthwhile. A justified stop or an inconclusive result is a complete, valid loop; you need not run a second attempt.
+
+For example, if you use a separate reviewer, look for a specific finding it reported and whether that changed your next decision. You may not know whether you would have found it another way; record that uncertainty rather than guessing.
 
 An observation of your usual workflow, a small intervention, and a comparison of two approaches are different things. For a direct comparison, use equivalent fresh starts and checks; [EXTENSIONS.md](EXTENSIONS.md) explains how. One attempt per approach supports only a tentative choice for this task.
 
