@@ -36,7 +36,7 @@ py -3 smoke.py
 
 ### Open in your coding agent
 
-Open the chosen case folder (for example, `work/integration/`) in your existing authenticated coding agent (VS Code, Cursor, Windsurf, Claude Code, Antigravity, Gemini CLI, etc.) using its usual folder-opening method. Instruct your agent to read `TASK.md` and `docs/contract.md` in that folder, and confirm it is working in that specific directory. Use disposable local files without credentials or secrets.
+In your existing authenticated coding agent (VS Code, Cursor, Windsurf, Claude Code, Antigravity, Gemini CLI, etc.), either keep the repository root open and name the chosen case folder (for example, `work/integration/`) or open that case folder directly. Ask your agent to read its `TASK.md` and `docs/contract.md`, and confirm the case directory for commands and results. Use disposable local files without credentials or secrets.
 
 For a standalone single-case ZIP, open its extracted case folder directly in your terminal and agent; run `python3 --version` and `python3 smoke.py` there (on Windows, `py -3 --version` and `py -3 smoke.py`). The browser notebook is available in the complete packet.
 

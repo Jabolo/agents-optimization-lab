@@ -8,4 +8,8 @@ Use your agent fully. Record a real habit and expectation, or choose a move for 
 
 Implement the change and tests using your normal workflow. You may gather evidence before editing.
 
+## Your agent has a result—what next?
+
+Inspect what was actually checked, try a useful workflow move if it addresses an uncertainty, or explain why stopping is reasonable for your scope. [Prompt cards](PROMPT-CARDS.md) offer optional ideas. A second attempt is not required; if you compare approaches later, use fresh starts and the same checks as described in [EXTENSIONS.md](EXTENSIONS.md).
+
 A check addressing your chosen contract condition supports a decision for that scope; note what it leaves unchecked. Stop when another observation is not worth its effort, and resume with a distinct legal sequence. This case has no report. Record elapsed time and reliable usage/cost only when available.

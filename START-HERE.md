@@ -16,7 +16,7 @@ This codebase is a small, self-contained conference-booking and agenda-export se
      ```
    - *Or* download and extract `learner-lab.zip` into a fresh local folder. Open the extracted `learner-lab/` folder that contains `START-HERE.md`.
 
-2. **Open the local repository root, or the extracted `learner-lab/` folder, in your coding agent.** Ask it to help you choose a case, read its task and contract, and begin. Use its usual folder-opening method. You can also follow these instructions yourself.
+2. **Open the local repository root, or the extracted `learner-lab/` folder, in your coding agent.** Ask it to help you choose a case, then name that case folder when asking it to read the task and contract. You may keep the root open or open the chosen case directly; use your agent's usual folder-opening method. You can also follow these instructions yourself.
 3. **Choose one workflow habit to watch.** Note what you expect it to help with, then work on the case. When you have a result, inspect the evidence and decide what to do next.
 4. **Keep a short record** in the browser notebook or the case's `RESULT.md`—one is enough. Stop or resume when useful; one complete decision loop is meaningful progress.
 
@@ -59,6 +59,6 @@ Examine your own engineering habits and tooling under real conditions. The optio
 
 An observation of your usual workflow, a small intervention, and a comparison of two approaches are different things. For a direct comparison, use equivalent fresh starts and checks; [EXTENSIONS.md](EXTENSIONS.md) explains how. One attempt per approach supports only a tentative choice for this task.
 
-For another case, open its folder in your existing agent and run commands from that folder. See [HELP.md](HELP.md) for setup, preserving work, and recovery. [RESOURCES.md](RESOURCES.md) and [EXTENSIONS.md](EXTENSIONS.md) provide further material. Use disposable copies without secrets.
+For another case, name its folder in your existing agent or open that folder directly; run commands from the chosen case folder. See [HELP.md](HELP.md) for setup, preserving work, and recovery. [RESOURCES.md](RESOURCES.md) and [EXTENSIONS.md](EXTENSIONS.md) provide further material. Use disposable copies without secrets.
 
 The cases share an application and some working code. You and your agent may reuse it. Record reuse or prior exposure when interpreting a comparison; verifying an assembled solution can be a useful next experiment.
