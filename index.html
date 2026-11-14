@@ -114,6 +114,11 @@ main { padding: 32px 40px 24px; min-width: 0; width: 100%; max-width: 1540px; }
 .folder-label { display: block; font-size: .875rem; margin-bottom: 3px; font-weight: 600; color: var(--muted); }
 .folder-actions { display: flex; gap: 8px; flex-shrink: 0; flex-wrap: wrap; }
 .folder-actions button { font-size: .875rem; }
+.windows-smoke { max-width: 72ch; margin: 0 0 16px; }
+.windows-smoke summary { font-size: .9375rem; padding: 10px 0; }
+.windows-smoke p { color: var(--muted); font-size: .9375rem; margin: 0 0 10px; }
+.windows-smoke code { color: #e0eee7; white-space: nowrap; }
+.windows-smoke button { font-size: .875rem; margin-bottom: 14px; }
 .start-hint { font-size: .95rem; color: var(--muted); margin-bottom: 28px; }
 
 .journey { margin: 0 0 28px; padding: 18px 20px; border: 1px solid #465b65; border-radius: var(--radius); background: var(--paper); }
@@ -166,6 +171,8 @@ textarea::placeholder, input::placeholder { color: #b3c0cd; opacity: 1; }
 #note-fields details { margin: 20px 0; }
 .primary { background: var(--purple-dark); color: #0e1715; border-color: var(--purple-dark); width: 100%; margin: 2px 0 10px; }
 .primary:hover { background: #b4e0d0; color: #0e1715; border-color: #b4e0d0; }
+.note-feedback { color: #d4f1e5; font-size: .9375rem; line-height: 1.55; margin: 0 0 14px; overflow-wrap: anywhere; }
+.note-feedback:empty { display: none; }
 #snapshot-list { margin-top: 24px; }
 #snapshot-list h3 { margin-bottom: 8px; }
 #snapshot-list details { padding-bottom: 8px; }
@@ -329,6 +336,7 @@ textarea::placeholder, input::placeholder { color: #b3c0cd; opacity: 1; }
       <button type="button" id="copy-command">Copy smoke check</button>
     </div>
   </div>
+  <details id="windows-smoke" class="windows-smoke"><summary>Using Windows?</summary><p>From the case folder, run <code id="windows-smoke-command">py -3 smoke.py</code>.</p><button type="button" id="copy-windows-command">Copy Windows command</button></details>
   <p id="copy-status" class="source-note" role="status"></p>
   <div class="case-start"><p class="start-hint">Open the repository or this case folder in your agent. Read the task below, then work as you normally would. Run checks in the case folder; this page does not run code.</p><button type="button" id="copy-start-prompt">Copy a prompt for your agent</button><details id="prompt-disclosure"><summary>Read the optional prompt</summary><p id="case-prompt"></p></details><a class="notes-shortcut" href="#notebook-disclosure" id="go-to-notes">Go to notes</a></div>
   <div class="work-grid">
@@ -348,13 +356,14 @@ textarea::placeholder, input::placeholder { color: #b3c0cd; opacity: 1; }
     </section>
     <section class="notebook-pane" aria-labelledby="notebook-title">
       <details id="notebook-disclosure" class="notebook-disclosure">
-      <summary><span class="notebook-summary-title" id="notebook-title">Your notes</span> <span class="notebook-summary-help" id="notebook-summary-help">Optional. Write a short reflection whenever you’re ready.</span></summary>
+      <summary><span class="notebook-summary-title" id="notebook-title">Your notes</span> <span class="notebook-summary-help" id="notebook-summary-help">Optional. Note what you expect before work; return to reflect when ready.</span></summary>
       <div class="notebook-content">
       <p class="source-note">Use this <em>or</em> RESULT.md. Your agent can help phrase your thoughts, but your habits and decisions come from you. An inconclusive result is valid.</p>
       <p class="material-shortcut"><button type="button" id="open-example">See a decision example</button></p>
       <p id="notebook-storage-status" class="source-note storage-feedback"></p>
       <div id="note-fields"></div>
       <button type="button" id="save-snapshot" class="primary">Preserve this decision</button>
+      <p id="note-feedback" class="note-feedback" aria-hidden="true"></p>
       <p class="source-note">Save before assessing NEXT.md to keep an earlier decision or inconclusive result. If you or your agent saw it early, record that exposure in your note. A snapshot does not prove independent reasoning.</p>
       <div id="snapshot-list"></div>
       </div></details>
@@ -392,7 +401,7 @@ textarea::placeholder, input::placeholder { color: #b3c0cd; opacity: 1; }
     ['decision_uncertainty', 'Decision and remaining uncertainty'],
     ['personal_rule', 'Personal rule: keep, change or stop — when and why'],
     ['falsifier', 'What would make me reconsider? (optional)'],
-    ['metadata', 'Time, cost, tools and settings (optional; unknown is fine)'],
+    ['metadata', 'Your time and effort, cost and tools (optional; unknown is fine)'],
   ];
   const fieldKeys = fields.map(([key]) => key);
   const storageKey = 'agents-optimization-lab:notes:v1:' + data.contentVersion;
@@ -473,7 +482,10 @@ textarea::placeholder, input::placeholder { color: #b3c0cd; opacity: 1; }
     return '';
   }
 
-  function notice(message) { $('#notice').textContent = message; }
+  function notice(message, nearNotes = false) {
+    $('#notice').textContent = message;
+    if (nearNotes) $('#note-feedback').textContent = message;
+  }
   function storageMessage(message) {
     const full = message + ' Another tab can overwrite notes; export a backup.';
     for (const id of ['#storage-status', '#notebook-storage-status']) {
@@ -495,7 +507,7 @@ textarea::placeholder, input::placeholder { color: #b3c0cd; opacity: 1; }
   } catch (error) {
     storageAvailable = false;
     storageMessage('Browser storage could not be read safely. Your current notes are in memory only; export them before closing. Existing stored data was not replaced.');
-    notice('Browser storage could not be read safely. Export notes before closing.');
+    notice('Browser storage could not be read safely. Export notes before closing.', true);
   }
 
   function persist() {
@@ -509,7 +521,7 @@ textarea::placeholder, input::placeholder { color: #b3c0cd; opacity: 1; }
     } catch (error) {
       storageAvailable = false;
       storageMessage('Browser storage failed or the notebook is too large. Your current notes are in memory only; export them before closing.');
-      notice('Browser storage failed or the notebook is too large. Export notes before closing.');
+      notice('Browser storage failed or the notebook is too large. Export notes before closing.', true);
       return false;
     }
   }
@@ -518,7 +530,7 @@ textarea::placeholder, input::placeholder { color: #b3c0cd; opacity: 1; }
     if (event.key === storageKey || event.key === null) {
       conflict = true;
       storageMessage('Another tab changed browser storage. Autosave is paused; this tab retains its current notes in memory. Export them, then reload to see the other version.');
-      notice('Another tab changed this notebook. Export this tab before reloading.');
+      notice('Another tab changed this notebook. Export this tab before reloading.', true);
     }
   });
 
@@ -556,6 +568,13 @@ textarea::placeholder, input::placeholder { color: #b3c0cd; opacity: 1; }
     return null;
   }
 
+  function caseTask(href, originalTarget) {
+    if (/^[a-z][a-z0-9+.-]*:/i.test(originalTarget)) return null;
+    const target = new URL(href);
+    if (target.search || target.hash) return null;
+    return data.cases.find((item) => new URL(item.path + '/TASK.md', document.baseURI).href === href) || null;
+  }
+
   function inline(parent, text, sourcePath) {
     const pattern = /(`[^`]+`|\*\*[^*]+\*\*|\[[^\]]+\]\([^\s)]+\))/g;
     let last = 0;
@@ -563,7 +582,11 @@ textarea::placeholder, input::placeholder { color: #b3c0cd; opacity: 1; }
       parent.append(document.createTextNode(text.slice(last, match.index)));
       const token = match[0];
       if (token.startsWith('`')) parent.append(element('code', token.slice(1, -1)));
-      else if (token.startsWith('**')) parent.append(element('strong', token.slice(2, -2)));
+      else if (token.startsWith('**')) {
+        const strong = element('strong');
+        inline(strong, token.slice(2, -2), sourcePath);
+        parent.append(strong);
+      }
       else {
         const parts = token.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
         const href = safeLink(parts[2], sourcePath);
@@ -578,6 +601,18 @@ textarea::placeholder, input::placeholder { color: #b3c0cd; opacity: 1; }
               if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
               event.preventDefault();
               showDocument(guide);
+            });
+          } else {
+            const item = caseTask(href, parts[2]);
+            if (item) link.addEventListener('click', (event) => {
+              if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+              event.preventDefault();
+              currentCase = item.id;
+              reportOpen = false;
+              renderCase();
+              activateView('work');
+              $('#case-title').focus({ preventScroll: true });
+              $('#case-title').scrollIntoView({ block: 'start' });
             });
           }
           parent.append(link);
@@ -677,6 +712,7 @@ textarea::placeholder, input::placeholder { color: #b3c0cd; opacity: 1; }
       if (first) {
         const ordered = Boolean(first[2]);
         const list = element(ordered ? 'ol' : 'ul');
+        if (ordered) list.start = Number(first[2]);
         while (index < lines.length) {
           const match = listItem(lines[index]);
           if (!match || Boolean(match[2]) !== ordered) break;
@@ -773,7 +809,7 @@ textarea::placeholder, input::placeholder { color: #b3c0cd; opacity: 1; }
       Object.values(entry.draft).some((value) => value.trim());
     $('#notebook-summary-help').textContent = hasNotes
       ? 'Notes for this case are here. Open to continue.'
-      : 'Optional. Write a short reflection whenever you’re ready.';
+      : 'Optional. Note what you expect before work; return to reflect when ready.';
   }
 
   function renderSnapshots() {
@@ -831,11 +867,13 @@ textarea::placeholder, input::placeholder { color: #b3c0cd; opacity: 1; }
     return 'Help me work through the ' + item.title + ' case. If the repository root is open, start with ' +
       item.path + '/TASK.md; if the case folder is open, start with TASK.md in that folder. ' +
       'Use your normal tools and capabilities. ' +
-      'Help me understand the task and evidence; let me choose my workflow habit, expectation and decisions.';
+      'Before work, invite me to name a habit and what I expect; letting the agent decide, having no usual habit, or skipping the note are fine. ' +
+      'Help me understand the task and evidence; let me make my own decisions.';
   }
 
   function renderCase() {
     const item = caseMap.get(currentCase);
+    if (storageAvailable && !conflict) $('#note-feedback').textContent = '';
     $('#case-title').textContent = item.title;
     const nextBadge = $('#case-next-badge');
     if (nextBadge) nextBadge.hidden = !item.hasNext;
@@ -927,7 +965,7 @@ textarea::placeholder, input::placeholder { color: #b3c0cd; opacity: 1; }
   $('#save-snapshot').addEventListener('click', () => {
     const entry = state.cases[currentCase];
     if (entry.snapshots.length >= maxSnapshots) {
-      notice('Snapshot limit reached for this case. Export your notes to preserve them.');
+      notice('Snapshot limit reached for this case. Export your notes to preserve them.', true);
       return;
     }
     entry.snapshots.push({ saved_at: new Date().toISOString(), version: entry.version,
@@ -935,7 +973,7 @@ textarea::placeholder, input::placeholder { color: #b3c0cd; opacity: 1; }
     const stored = persist();
     renderSnapshots();
     notice(stored ? 'Snapshot saved; the draft remains editable.'
-      : 'Snapshot is in this tab only. Export your notes before closing.');
+      : 'Snapshot is in this tab only. Export your notes before closing.', true);
   });
 
   $('#copy-path').addEventListener('click', () => {
@@ -953,6 +991,10 @@ textarea::placeholder, input::placeholder { color: #b3c0cd; opacity: 1; }
       copyText('python3 smoke.py', $('#smoke-command'), $('#copy-status'), 'Copied smoke command "python3 smoke.py" to clipboard (run inside ' + item.path + ').');
     });
   }
+  $('#copy-windows-command').addEventListener('click', () => {
+    const item = caseMap.get(currentCase);
+    copyText('py -3 smoke.py', $('#windows-smoke-command'), $('#copy-status'), 'Copied Windows smoke command "py -3 smoke.py" (run inside ' + item.path + ').');
+  });
 
   function download(name, content, mime) {
     const url = URL.createObjectURL(new Blob([content], { type: mime }));
