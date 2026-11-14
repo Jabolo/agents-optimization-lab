@@ -3,41 +3,292 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="light">
+<meta name="color-scheme" content="dark">
 <title>The Agents Optimization Lab — local notebook</title>
-<style>:root{--ink:#24213b;--muted:#605972;--purple:#4932a0;--purple-dark:#302467;--surface:#f1eef9;--paper:#fff;--line:#d8d2e8;--mark:#e7f28b;--focus:#7455d5;--radius:8px;--space:24px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--surface);line-height:1.5;font-synthesis:none}
-*{box-sizing:border-box}body{margin:0}button,input,textarea,select{font:inherit}button,.file-button{cursor:pointer;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);padding:9px 14px;line-height:1.3;font-weight:600;min-height:42px;transition:background .16s ease-out}button:hover,.file-button:hover{background:#e9e4f6}button:disabled{cursor:default;opacity:.6}a{color:var(--purple);text-underline-offset:4px}a:hover{text-decoration-thickness:2px}:focus-visible{outline:3px solid var(--focus);outline-offset:3px}::selection{background:var(--mark);color:var(--ink)}textarea,input{caret-color:var(--purple)}[hidden]{display:none!important}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(2rem,3.2vw,3rem);letter-spacing:-.035em;line-height:1.12;margin-bottom:14px;text-wrap:balance;font-weight:650}h2{font-size:1.2rem;letter-spacing:-.02em;line-height:1.25;margin-bottom:12px}h3{font-size:1rem}p{max-width:72ch}code,pre{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}button{white-space:normal}.skip{position:absolute;top:-100px;left:20px;z-index:10;background:var(--mark);padding:12px}.skip:focus{top:12px}
-.topbar{min-height:104px;background:var(--purple-dark);color:white;display:flex;align-items:center;gap:46px;padding:20px 36px}.brand{font-size:1.08rem;line-height:1.25;color:white;text-decoration:none;letter-spacing:-.025em}.brand strong{font-weight:700}.format{font-size:.85rem;color:#ddd6f4;margin:0}.view-nav{display:flex;gap:8px;margin-left:auto}.view-nav button{background:transparent;border-color:transparent;color:#e6e0f6}.view-nav button[aria-pressed=true]{background:var(--mark);color:var(--ink)}.view-nav button:hover{background:#48378a;color:white}.view-nav button[aria-pressed=true]:hover{background:#d5e37b;color:var(--ink)}
-.layout{display:grid;grid-template-columns:238px minmax(0,1fr);min-height:calc(100vh - 104px)}.rail{padding:34px 20px;background:#e5dff3;border-right:1px solid var(--line)}.rail h2{font-size:1.05rem}.rail>p{font-size:.84rem;color:var(--muted);margin-bottom:26px}#case-nav{display:grid;gap:8px}#case-nav h3{font-size:.78rem;color:var(--muted);font-weight:500;margin:22px 8px 2px}#case-nav button{width:100%;text-align:left;background:transparent;border-color:transparent;padding:12px 14px;font-weight:500}#case-nav button[aria-current=page],#case-nav button[aria-pressed=true]{background:var(--purple);color:white}#case-nav button:hover{background:#d4caed;color:var(--ink)}#case-nav small{display:block;font-size:.76rem;font-weight:400;margin-top:3px}.rail-foot{border-top:1px solid #cdc2e3;padding-top:22px;margin-top:38px;font-size:.8rem;color:var(--muted)}.rail-foot p:first-child{font-weight:650;color:var(--ink)}main{padding:35px clamp(20px,3vw,48px) 16px;min-width:0;max-width:1560px}.case-heading{display:flex;align-items:flex-start;gap:20px;justify-content:space-between}.case-heading p{color:var(--muted);font-size:1rem;margin-bottom:23px}.local-label{font-size:.75rem;white-space:nowrap;color:var(--purple);padding-top:9px}.folder-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 18px;background:var(--mark);border-radius:var(--radius);margin-bottom:14px}.folder-bar span{display:block;font-size:.75rem;margin-bottom:2px}.folder-bar code{font-size:.95rem;overflow-wrap:anywhere}.folder-bar button{background:transparent;border-color:#b7c269;flex-shrink:0}.folder-meta{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;min-width:0}.folder-cell{min-width:0}.folder-label{display:block;font-size:.73rem;margin-bottom:2px;font-weight:600;color:#3b3c10}.folder-actions{display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap}.folder-actions button{background:transparent;border-color:#b7c269;min-height:38px;padding:8px 12px;font-size:.82rem}.folder-actions button:hover{background:#dbe680}.case-title-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:8px}.case-title-row h1{margin-bottom:0}.case-badge{display:inline-block;font-size:.68rem;font-weight:600;line-height:1.2;padding:2px 7px;border-radius:4px;background:#dfd7f0;color:var(--purple-dark);border:1px solid #c9bee2;margin-top:6px;letter-spacing:.01em}#case-nav button[aria-current=page] .case-badge{background:#5c45b8;color:#f1eef9;border-color:#7862cc}.case-title-row .case-badge{margin-top:0;font-size:.75rem;padding:3px 9px;background:#e9e2f8;border-color:#bdafe0}.start-hint{font-size:.86rem;color:var(--muted);margin-bottom:29px}.work-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:30px;align-items:start}.material-pane,.notebook-pane{min-width:0}.pane-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:12px}.pane-heading h2{margin:0}.pane-heading>span{font-size:.7rem;color:var(--muted);white-space:nowrap}.source-note{font-size:.77rem;color:var(--muted);margin-bottom:18px;line-height:1.5}details{border-bottom:1px solid var(--line);margin-bottom:10px}summary{cursor:pointer;padding:13px 0;font-size:.9rem;font-weight:650}summary::marker{color:var(--purple)}.source{white-space:pre-wrap;overflow-wrap:anywhere;font-size:.78rem;line-height:1.75;tab-size:2;background:var(--paper);border-radius:var(--radius);padding:20px;margin:0 0 16px;max-height:490px;overflow:auto;color:#393347;scrollbar-color:#b4a9cd #f3f0f8;scrollbar-width:thin}.report-area{padding-top:14px}.report-area>p{font-size:.77rem;color:var(--muted);margin-top:9px}.report-area>button{width:100%;text-align:left;border-color:#b7a6df;color:var(--purple)}.file-links{display:flex;flex-wrap:wrap;gap:10px 16px;font-size:.8rem;margin-top:18px}.field{display:block;margin:0 0 16px}.field label{display:block;font-size:.83rem;font-weight:650;margin-bottom:6px}.field small{display:block;color:var(--muted);font-size:.75rem;margin:4px 0}.field textarea,.field input,textarea,input[type=text]{display:block;width:100%;border:1px solid #c7bedb;border-radius:6px;padding:10px 12px;color:var(--ink);background:white;font-size:.86rem;line-height:1.5;min-height:78px;resize:vertical}.field textarea::placeholder{color:#736b85;opacity:1}.field:focus-within label{color:var(--purple)}.primary{background:var(--purple);color:white;border-color:var(--purple);width:100%;margin:2px 0 10px}.primary:hover{background:var(--purple-dark);color:white}#snapshot-list{margin-top:28px}#snapshot-list h3{margin-bottom:8px}#snapshot-list details{padding-bottom:8px}#snapshot-list pre{font-size:.76rem;line-height:1.7;background:#e4def3;white-space:pre-wrap;overflow-wrap:anywhere;padding:16px;border-radius:6px}.empty-state{color:var(--muted);font-size:.8rem}.save-bar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;border-top:1px solid #c9bfdf;margin-top:42px;padding:27px 0 12px}.save-bar h2{margin-bottom:6px}.save-bar p{font-size:.8rem;margin-bottom:8px}.save-actions{display:flex;flex-direction:column;gap:8px;align-items:stretch}.file-button{position:relative;text-align:center;font-size:.87rem}.file-button input{position:absolute;width:1px;height:1px;opacity:0}.file-button:focus-within{outline:3px solid var(--focus);outline-offset:3px}#import-preview{grid-column:1/-1;padding:18px;background:#e5dff3;border-radius:8px}#import-preview button{margin:6px 8px 0 0}#notice{font-size:.85rem;color:var(--purple);min-height:1.5em}.page-footer{display:flex;justify-content:space-between;gap:16px;padding-top:16px;border-top:1px solid var(--line);font-size:.7rem;color:var(--muted)}.document-nav{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 26px}.document-nav button[aria-current=page]{background:var(--purple);color:white;border-color:var(--purple)}.library-source{font-size:.9rem;max-width:90ch;max-height:none;min-height:300px;padding:28px}.no-script{padding:20px;background:var(--mark)}
-@media(min-width:1500px){.work-grid{gap:42px}.source{font-size:.82rem}}@media(max-width:1150px){.topbar{gap:24px;padding:20px 24px}.format{display:none}.layout{grid-template-columns:204px minmax(0,1fr)}.work-grid{gap:22px;grid-template-columns:minmax(0,1fr)}.pane-heading>span{font-size:.75rem}.notebook-pane{margin-top:12px}.source{max-height:380px}.save-bar{grid-template-columns:1fr}.save-actions{flex-direction:row;flex-wrap:wrap}.save-actions>*{flex:1}.local-label{display:none}}
-@media(max-width:680px){.topbar{padding:18px 20px;gap:16px;flex-wrap:wrap}.brand{font-size:1rem}.view-nav{width:100%;margin-left:0}.view-nav button{flex:1;font-size:.82rem;padding:10px}.layout{display:block}.rail{padding:20px;border-right:0;border-bottom:1px solid var(--line)}.rail>h2{margin-bottom:6px}.rail>p{margin-bottom:14px}#case-nav{display:flex;overflow:auto;gap:6px;padding:2px 0 8px}#case-nav button{width:auto;min-width:136px;max-width:180px;font-size:.82rem;padding:10px}#case-nav h3{display:none}#case-nav small{font-size:.7rem}.rail-foot{display:none}main{padding:28px 20px 16px}h1{font-size:2.15rem}.case-heading p{font-size:.9rem}.folder-bar{padding:12px;flex-direction:column;align-items:stretch;gap:10px}.folder-meta{flex-direction:column;gap:8px;align-items:stretch}.folder-actions{flex-direction:column;gap:6px}.folder-bar code{font-size:.8rem}.folder-bar button,.folder-actions button{font-size:.78rem;padding:8px;width:100%}.case-title-row{align-items:flex-start}.work-grid{gap:24px}.pane-heading>span{font-size:.68rem}.source{padding:16px;max-height:420px}.save-actions{flex-direction:column}.page-footer{flex-direction:column;gap:5px}.library-source{padding:16px;font-size:.8rem}.source-note{font-size:.78rem}.field textarea{font-size:1rem}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+<style>:root {
+  color-scheme: dark;
+  --surface: #11171d;
+  --rail: #151d24;
+  --paper: #171f27;
+  --raised: #202b33;
+  --selected: #293b3b;
+  --ink: #e8edf1;
+  --muted: #b3c0cd;
+  --purple: #afd7c8;
+  --purple-dark: #8bcab7;
+  --line: #566773;
+  --mark: #293b3b;
+  --focus: #f5ce7a;
+  --radius: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--surface);
+  line-height: 1.55;
+  font-synthesis: none;
+}
 
-#note-fields>p{font-size:.77rem;color:var(--muted)}#note-fields>label{display:block;font-size:.83rem;font-weight:650;margin-bottom:16px}#note-fields>label textarea,#note-fields>label input{margin-top:6px}#note-fields label.field{font-size:.83rem;font-weight:650}#note-fields details{margin:22px 0}#snapshot-list h4{font-size:.85rem;margin-bottom:8px}#snapshot-list h5{font-size:.75rem;margin-bottom:6px}#snapshot-list p{font-size:.75rem;color:var(--muted)}#content-version{overflow-wrap:anywhere;font-family:ui-monospace,monospace;max-width:35ch}#case-nav>div{display:grid;gap:4px}
-@media(max-width:680px){#case-nav>div{display:flex;gap:6px}}
-.snapshot-compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0 24px}.snapshot-compare>section,.snapshot-compare>div{min-width:0;background:#e4def3;padding:16px;border-radius:8px}.snapshot-compare h3,.snapshot-compare h4{font-size:.85rem;margin:0 0 8px}.snapshot-compare p{overflow-wrap:anywhere;white-space:pre-wrap;font-size:.82rem!important}.snapshot-compare small{font-size:.7rem;color:var(--muted)}#note-fields input[type=text]{min-height:42px}.field{font-size:.83rem;font-weight:650}.field textarea,.field input{margin-top:6px;font-weight:400}.field textarea{min-height:80px}#snapshot-list summary{font-size:.82rem}#snapshot-list h5{margin-top:16px}@media(max-width:680px){.snapshot-compare{grid-template-columns:1fr}}
-.prose{font-family:inherit;white-space:normal;font-size:.9rem;line-height:1.65}.prose h1{font-size:1.5rem;margin:0 0 18px;letter-spacing:-.02em}.prose h2{font-size:1.1rem;margin:26px 0 10px}.prose h3{font-size:.98rem;margin:22px 0 10px}.prose p{margin:0 0 14px}.prose ul,.prose ol{padding-left:22px;margin:0 0 16px}.prose li{margin:7px 0}.prose code{font-size:.82em;background:#eee9f7;padding:2px 4px;border-radius:3px}.prose pre{position:relative;font-size:.8rem;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere;background:#f1eef9;padding:14px;border-radius:6px}.prose pre code{font-size:inherit;padding:0;background:transparent}.prose table{border-collapse:collapse;width:100%;font-size:.8rem;margin-bottom:18px}.prose td,.prose th{padding:9px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}.prose th{background:#eee9f7}.prose details>pre{font-size:.75rem}.prose button{font-size:.75rem;margin-bottom:12px;min-height:36px}.library-source.prose{max-width:90ch}.prose .table-wrap{overflow-x:auto}.prose blockquote{margin:14px 0;padding-left:16px;border-left:1px solid var(--line)}
+* { box-sizing: border-box; }
+body { margin: 0; }
+button, input, textarea, select { font: inherit; }
+button, .file-button {
+  cursor: pointer;
+  border: 1px solid #748a99;
+  border-radius: 6px;
+  background: var(--raised);
+  color: var(--ink);
+  padding: 10px 14px;
+  min-height: 44px;
+  line-height: 1.35;
+  font-weight: 600;
+  transition: background-color .16s ease-out, border-color .16s ease-out;
+}
+button:hover, .file-button:hover { background: #30404a; border-color: #a4b8c4; }
+button:disabled { cursor: default; opacity: .65; }
+a { color: var(--purple); text-decoration: underline; text-underline-offset: .2em; }
+a:hover { color: #d4f1e5; text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+::selection { background: #afd7c8; color: #0e1715; }
+textarea, input { caret-color: #d4f1e5; }
+[hidden] { display: none !important; }
+h1, h2, h3, h4, h5, p { margin-top: 0; }
+h1 { font-size: 2rem; letter-spacing: -.025em; line-height: 1.2; margin-bottom: 12px; font-weight: 700; text-wrap: balance; }
+h2 { font-size: 1.2rem; letter-spacing: -.015em; line-height: 1.3; margin-bottom: 12px; }
+h3 { font-size: 1rem; }
+p { max-width: 72ch; }
+code, pre { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+button { white-space: normal; }
+.skip { position: absolute; top: -100px; left: 20px; z-index: 10; background: var(--purple); color: #0e1715; padding: 12px; }
+.skip:focus { top: 12px; }
 
-.prose{max-height:none}.copy-feedback{display:block;font-size:.78rem;color:var(--purple);margin:0 0 12px}.storage-feedback{font-size:.8rem;padding:12px;background:#e4def3;border-radius:6px;overflow-wrap:anywhere}.snapshot-compare pre{font-family:inherit!important;font-size:.82rem!important}#copy-status:empty{display:none}#copy-status{font-weight:500;color:var(--purple-dark)}
-#repo-access{flex-wrap:wrap;margin-bottom:26px}#repo-access p{font-size:.85rem;flex:1 1 30ch;margin:0}#repo-access>a{display:inline-block;padding:9px 14px;border:1px solid #b7c269;border-radius:6px;font-size:.85rem;font-weight:650;white-space:nowrap}
-.material-shortcut{margin:-8px 0 16px}.material-shortcut button{font-size:.8rem;min-height:38px}
-@media(max-width:680px){#case-nav button{min-width:200px;max-width:240px}#repo-access p{flex:0 0 auto}}
+.topbar {
+  min-height: 82px;
+  background: #0c1217;
+  border-bottom: 1px solid #384852;
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  padding: 16px 32px;
+}
+.brand { font-size: 1rem; line-height: 1.3; color: var(--ink); text-decoration: none; letter-spacing: -.02em; }
+.brand:hover { color: #fff; }
+.brand strong { font-weight: 700; }
+.format { font-size: .875rem; color: var(--muted); margin: 0; }
+.view-nav { display: flex; gap: 6px; margin-left: auto; }
+.view-nav button { background: transparent; border-color: transparent; color: var(--muted); }
+.view-nav button[aria-pressed=true] { background: var(--selected); color: var(--ink); border-color: #69887e; text-decoration: underline; text-underline-offset: .22em; }
+.view-nav button:hover { background: var(--raised); color: var(--ink); }
+.view-nav button[aria-pressed=true]:hover { background: #34504a; }
+
+.layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); min-height: calc(100vh - 82px); }
+.rail { padding: 30px 18px; background: var(--rail); border-right: 1px solid #384852; }
+.rail h2 { font-size: 1rem; }
+.rail > p { font-size: .875rem; color: var(--muted); margin-bottom: 20px; }
+#case-nav { display: grid; gap: 8px; }
+#case-nav > div { display: grid; gap: 4px; }
+#case-nav h3 { font-size: .875rem; color: var(--muted); font-weight: 600; margin: 20px 10px 4px; }
+#case-nav button { width: 100%; text-align: left; background: transparent; border-color: transparent; padding: 10px; font-weight: 600; }
+#case-nav button[aria-current=page], #case-nav button[aria-pressed=true] { background: var(--selected); border-color: #69887e; color: var(--ink); }
+#case-nav button[aria-current=page]::after { content: "Selected"; display: block; font-size: .75rem; font-weight: 600; margin-top: 5px; }
+#case-nav button:hover { background: var(--raised); border-color: #748a99; color: var(--ink); }
+#case-nav button[aria-current=page]:hover { background: #34504a; }
+#case-nav small { display: block; font-size: .875rem; font-weight: 400; line-height: 1.45; margin-top: 3px; color: var(--muted); }
+.rail-foot { border-top: 1px solid #384852; padding-top: 20px; margin-top: 32px; font-size: .875rem; color: var(--muted); }
+.rail-foot p:first-child { font-weight: 650; color: var(--ink); }
+
+main { padding: 32px 40px 24px; min-width: 0; width: 100%; max-width: 1540px; }
+.case-heading { display: flex; align-items: flex-start; gap: 20px; justify-content: space-between; }
+.case-heading p { color: var(--muted); font-size: 1rem; margin-bottom: 20px; }
+.local-label { font-size: .875rem; white-space: nowrap; color: var(--muted); padding-top: 6px; }
+.case-title-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.case-title-row h1 { margin-bottom: 0; }
+.case-badge { display: inline-block; font-size: .75rem; font-weight: 600; line-height: 1.25; padding: 3px 7px; border-radius: 4px; background: #263a39; color: #d3e9df; border: 1px solid #69887e; margin-top: 6px; }
+.case-title-row .case-badge { margin-top: 0; }
+
+.folder-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 18px; background: var(--paper); border: 1px solid #465b65; border-radius: var(--radius); margin-bottom: 16px; }
+.folder-bar span { display: block; font-size: .875rem; margin-bottom: 3px; }
+.folder-bar code { font-size: .95rem; overflow-wrap: anywhere; color: #e0eee7; }
+#smoke-command { white-space: nowrap; }
+.folder-bar button { flex-shrink: 0; }
+.folder-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; min-width: 0; }
+.folder-cell { min-width: 0; }
+.folder-label { display: block; font-size: .875rem; margin-bottom: 3px; font-weight: 600; color: var(--muted); }
+.folder-actions { display: flex; gap: 8px; flex-shrink: 0; flex-wrap: wrap; }
+.folder-actions button { font-size: .875rem; }
+.start-hint { font-size: .95rem; color: var(--muted); margin-bottom: 28px; }
+
+.journey { margin: 0 0 28px; padding: 18px 20px; border: 1px solid #465b65; border-radius: var(--radius); background: var(--paper); }
+.journey-title { font-weight: 700; margin-bottom: 10px; }
+.journey ol { display: flex; flex-wrap: wrap; gap: 12px 28px; margin: 0; padding-left: 22px; }
+.journey li { flex: 1 1 180px; padding-left: 3px; color: var(--muted); }
+.journey li strong { color: var(--ink); }
+.journey li strong, .journey li span { display: block; }
+.journey li span { margin-top: 3px; }
+.case-start { margin: 0 0 30px; }
+.case-start .start-hint { margin: 0 0 12px; }
+#copy-start-prompt { background: var(--purple-dark); border-color: var(--purple-dark); color: #0e1715; }
+#copy-start-prompt:hover { background: #b4e0d0; border-color: #b4e0d0; }
+#prompt-disclosure { max-width: 72ch; margin: 8px 0 0; }
+#prompt-disclosure summary { font-size: .9375rem; padding: 10px 0; }
+#case-prompt { white-space: pre-wrap; overflow-wrap: anywhere; padding: 16px; margin: 0 0 12px; background: var(--paper); border-radius: var(--radius); }
+.notes-shortcut { display: inline-block; margin-top: 12px; font-weight: 600; }
+
+.work-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, .85fr); gap: 32px; align-items: start; }
+.material-pane, .notebook-pane { min-width: 0; }
+.pane-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; border-bottom: 1px solid #465b65; padding-bottom: 12px; margin-bottom: 14px; }
+.pane-heading h2 { margin: 0; }
+.pane-heading > span { font-size: .875rem; color: var(--muted); }
+.source-note { font-size: .875rem; color: var(--muted); margin-bottom: 16px; line-height: 1.55; }
+details { border-bottom: 1px solid #465b65; margin-bottom: 10px; }
+summary { cursor: pointer; padding: 13px 0; font-size: 1rem; font-weight: 650; }
+summary::marker { color: var(--purple); }
+.source { white-space: pre-wrap; overflow-wrap: anywhere; font-size: .95rem; line-height: 1.65; tab-size: 2; background: var(--paper); border-radius: var(--radius); padding: 22px; margin: 0 0 16px; max-height: 490px; overflow: auto; color: var(--ink); scrollbar-color: #748a99 var(--paper); scrollbar-width: thin; }
+.report-area { padding-top: 14px; }
+.report-area > p { font-size: .875rem; color: var(--muted); margin-top: 9px; }
+.report-area > button { width: 100%; text-align: left; }
+.file-links { display: flex; flex-wrap: wrap; gap: 10px 16px; font-size: .875rem; margin-top: 18px; }
+
+.notebook-disclosure { background: var(--paper); border: 1px solid #465b65; border-radius: var(--radius); padding: 0 18px 18px; }
+.notebook-disclosure > summary { padding: 18px 0; }
+.notebook-summary-title { font-weight: 700; }
+.notebook-summary-help { display: block; margin: 5px 0 0 1.4em; font-size: .875rem; font-weight: 400; color: var(--muted); }
+.notebook-content { min-width: 0; }
+.material-shortcut { margin: 0 0 16px; }
+.material-shortcut button { font-size: .875rem; }
+.field, #note-fields > label { display: block; margin: 0 0 18px; font-size: .9375rem; font-weight: 650; }
+.field label { display: block; margin-bottom: 6px; }
+.field small { display: block; color: var(--muted); font-size: .875rem; margin: 6px 0; font-weight: 400; }
+textarea, input[type=text], .field textarea, .field input { display: block; width: 100%; border: 1px solid #748a99; border-radius: 6px; padding: 10px 12px; color: var(--ink); background: #11171d; font-size: 1rem; line-height: 1.5; min-height: 80px; resize: vertical; }
+#note-fields input[type=text] { min-height: 44px; }
+.field textarea, .field input, #note-fields > label textarea, #note-fields > label input { margin-top: 6px; font-weight: 400; }
+textarea::placeholder, input::placeholder { color: #b3c0cd; opacity: 1; }
+.field:focus-within { color: #d4f1e5; }
+#note-fields > p { font-size: .875rem; color: var(--muted); }
+#note-fields details { margin: 20px 0; }
+.primary { background: var(--purple-dark); color: #0e1715; border-color: var(--purple-dark); width: 100%; margin: 2px 0 10px; }
+.primary:hover { background: #b4e0d0; color: #0e1715; border-color: #b4e0d0; }
+#snapshot-list { margin-top: 24px; }
+#snapshot-list h3 { margin-bottom: 8px; }
+#snapshot-list details { padding-bottom: 8px; }
+#snapshot-list summary, #snapshot-list h4 { font-size: .9375rem; }
+#snapshot-list p, #snapshot-list h5 { font-size: .875rem; }
+#snapshot-list p { color: var(--muted); }
+#snapshot-list pre { font-size: .875rem; line-height: 1.6; background: var(--raised); white-space: pre-wrap; overflow-wrap: anywhere; padding: 16px; border-radius: 6px; }
+.empty-state { color: var(--muted); font-size: .875rem; }
+.snapshot-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0 24px; }
+.snapshot-compare > section, .snapshot-compare > div { min-width: 0; background: var(--raised); padding: 16px; border-radius: 8px; }
+.snapshot-compare h3, .snapshot-compare h4 { font-size: .9375rem; margin: 0 0 8px; }
+.snapshot-compare p, .snapshot-compare pre { overflow-wrap: anywhere; white-space: pre-wrap; font: inherit; }
+.snapshot-compare small { font-size: .875rem; color: var(--muted); }
+
+.save-bar { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; border-top: 1px solid #465b65; margin-top: 42px; padding: 27px 0 12px; }
+.save-bar h2 { margin-bottom: 6px; }
+.save-bar p { font-size: .875rem; margin-bottom: 8px; }
+.save-actions { display: flex; flex-direction: column; gap: 8px; align-items: stretch; }
+.file-button { position: relative; text-align: center; font-size: .9375rem; }
+.file-button input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.file-button:focus-within { outline: 3px solid var(--focus); outline-offset: 3px; }
+#import-preview { grid-column: 1 / -1; padding: 18px; background: var(--raised); border-radius: 8px; }
+#import-preview button { margin: 6px 8px 0 0; }
+#notice { font-size: .9375rem; color: #d4f1e5; min-height: 1.5em; }
+.page-footer { display: flex; justify-content: space-between; gap: 16px; padding-top: 16px; border-top: 1px solid #465b65; font-size: .875rem; color: var(--muted); }
+#content-version { overflow-wrap: anywhere; font-family: ui-monospace, monospace; max-width: 35ch; }
+.document-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 26px; }
+.document-nav button[aria-current=page] { background: var(--selected); color: var(--ink); border-color: #69887e; text-decoration: underline; text-underline-offset: .22em; }
+.library-source { font-size: 1rem; max-width: 75ch; max-height: none; min-height: 300px; padding: 28px; }
+.no-script { padding: 20px; background: var(--raised); color: var(--ink); }
+
+.prose { font-family: inherit; white-space: normal; font-size: 1rem; line-height: 1.7; max-height: none; }
+.prose h1 { font-size: 1.5rem; margin: 0 0 18px; letter-spacing: -.02em; }
+.prose h2 { font-size: 1.2rem; margin: 28px 0 10px; }
+.prose h3 { font-size: 1.05rem; margin: 24px 0 10px; }
+.prose p { margin: 0 0 16px; }
+.prose ul, .prose ol { padding-left: 24px; margin: 0 0 18px; }
+.prose li { margin: 8px 0; }
+.prose code { font-size: .9em; color: #e0eee7; background: #29353d; padding: 2px 5px; border-radius: 3px; }
+.prose pre { position: relative; font-size: .875rem; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; background: #11171d; padding: 14px; border-radius: 6px; }
+.prose pre code { font-size: inherit; padding: 0; background: transparent; }
+.prose table { border-collapse: collapse; width: 100%; font-size: .9375rem; margin-bottom: 18px; }
+.prose td, .prose th { padding: 10px; text-align: left; border-bottom: 1px solid #465b65; vertical-align: top; }
+.prose th { background: var(--raised); }
+.prose details > pre { font-size: .875rem; }
+.prose button { font-size: .875rem; margin-bottom: 12px; }
+.prose .table-wrap { overflow-x: auto; }
+.prose blockquote { margin: 14px 0; padding-left: 16px; border-left: 1px solid #748a99; }
+.copy-feedback { display: block; font-size: .875rem; color: #d4f1e5; margin: 0 0 12px; }
+.storage-feedback { font-size: .875rem; padding: 12px; background: var(--raised); border-radius: 6px; overflow-wrap: anywhere; }
+#copy-status:empty { display: none; }
+#copy-status { font-weight: 500; color: #d4f1e5; }
+#repo-access { flex-wrap: wrap; margin-bottom: 26px; }
+#repo-access p { font-size: .9375rem; flex: 1 1 30ch; margin: 0; }
+#repo-access > a { display: inline-block; padding: 10px 14px; border: 1px solid #748a99; border-radius: 6px; font-size: .9375rem; font-weight: 650; white-space: nowrap; }
+
+@media (max-width: 1150px) {
+  .topbar { gap: 24px; padding: 16px 24px; }
+  .format { display: none; }
+  .layout { grid-template-columns: 210px minmax(0, 1fr); }
+  main { padding: 28px 28px 24px; }
+  .work-grid { gap: 22px; grid-template-columns: minmax(0, 1fr); }
+  .notebook-pane { margin-top: 12px; }
+  .save-bar { grid-template-columns: 1fr; }
+  .save-actions { flex-direction: row; flex-wrap: wrap; }
+  .save-actions > * { flex: 1 1 180px; }
+  .local-label { display: none; }
+}
+@media (min-width: 681px) and (max-width: 900px) {
+  .folder-bar:not(#repo-access) { flex-direction: column; align-items: stretch; }
+  .folder-bar:not(#repo-access) .folder-meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .folder-bar:not(#repo-access) .folder-actions { justify-content: flex-start; }
+}
+@media (max-width: 680px) {
+  .topbar { padding: 16px 20px; gap: 14px; flex-wrap: wrap; }
+  .view-nav { width: 100%; margin-left: 0; }
+  .view-nav button { flex: 1; }
+  .layout { display: block; }
+  .rail { padding: 20px; border-right: 0; border-bottom: 1px solid #384852; }
+  .rail > h2 { margin-bottom: 6px; }
+  .rail > p { margin-bottom: 14px; }
+  #case-nav { display: flex; overflow-x: auto; gap: 6px; padding: 3px 3px 10px; }
+  #case-nav > div { display: flex; position: relative; gap: 6px; padding-top: 29px; align-items: stretch; }
+  #case-nav button { width: auto; min-width: 190px; max-width: 240px; }
+  #case-nav h3 { display: block; position: absolute; top: 0; left: 3px; margin: 0; font-size: .875rem; }
+  .rail-foot { display: none; }
+  main { padding: 26px 20px 20px; }
+  h1 { font-size: 1.75rem; }
+  .folder-bar { flex-direction: column; align-items: stretch; gap: 12px; }
+  .folder-meta { flex-direction: column; gap: 10px; align-items: stretch; }
+  .folder-actions { flex-direction: column; }
+  .folder-actions button { width: 100%; }
+  .journey ol { display: block; }
+  .journey li { margin: 8px 0; }
+  .case-title-row { align-items: flex-start; }
+  .source, .library-source { padding: 16px; }
+  .save-actions { flex-direction: column; }
+  .save-actions > * { flex: auto; }
+  .page-footer { flex-direction: column; gap: 5px; }
+  .snapshot-compare { grid-template-columns: 1fr; }
+  #repo-access p { flex: 0 0 auto; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; } }
+@media (forced-colors: active) {
+  :focus-visible, .file-button:focus-within { outline: 3px solid Highlight; }
+  #case-nav button[aria-current=page], .view-nav button[aria-pressed=true], .document-nav button[aria-current=page] { border: 2px solid Highlight; }
+}
 </style>
 </head>
 <body>
 <a class="skip" href="#workspace">Skip to workspace</a>
 <header class="topbar">
   <a class="brand" href="#workspace">The Agents<br><strong>Optimization Lab</strong></a>
-  <p class="format">Your tools · Your terminal · Your pace<br>Local reader &amp; decision notebook</p>
+  <p class="format">Your agent. Your pace.<br>Local reader and optional notebook</p>
   <nav class="view-nav" aria-label="Main views">
-    <button type="button" data-view="work" aria-pressed="true">Workbench</button>
-    <button type="button" data-view="library" aria-pressed="false">Field notes &amp; prompts</button>
+    <button type="button" data-view="work" aria-controls="view-work" aria-pressed="true">Workspace</button>
+    <button type="button" data-view="library" aria-controls="view-library" aria-pressed="false">Guides &amp; prompts</button>
   </nav>
 </header>
 <div class="layout">
 <aside class="rail" aria-label="Choose a case">
-  <h2>Find your question.</h2>
-  <p id="case-choice-hint">Choose any case. A single complete decision loop is useful progress.</p>
+  <h2>Cases</h2>
+  <p id="case-choice-hint">Choose any case. Work at your own pace.</p>
   <nav id="case-nav" aria-label="Cases"></nav>
   <div class="rail-foot">
     <p>Work individually.<br>Use your agent fully.</p>
@@ -47,12 +298,20 @@
 <main id="workspace" tabindex="-1">
 <div id="repo-access" class="folder-bar" hidden><p>To work with your coding agent, clone the repository and open a case folder. This page keeps notes; checks run in your own terminal.</p><a href="https://github.com/Jabolo/agents-optimization-lab">Open lab repository</a></div>
 <section id="view-work">
+  <div class="journey" aria-label="A suggested way to work">
+    <p class="journey-title">A simple way to begin</p>
+    <ol>
+      <li><strong>Choose a case</strong> <span>Start with Integration, or choose another.</span></li>
+      <li><strong>Work with your agent</strong> <span>Notice a habit and what you expect, then use your agent.</span></li>
+      <li><strong>Reflect when ready</strong> <span>Note what happened and what you’ll do next.</span></li>
+    </ol>
+  </div>
   <div class="case-heading">
     <div>
-      <div class="case-title-row"><h1 id="case-title">Choose a case</h1><span id="case-next-badge" class="case-badge" hidden>NEXT.md report</span></div>
+      <div class="case-title-row"><h1 id="case-title" tabindex="-1">Choose a case</h1><span id="case-next-badge" class="case-badge" hidden>NEXT.md report</span></div>
       <p id="case-description"></p>
     </div>
-    <span class="local-label">Your pace · your tools</span>
+    <span class="local-label">Your pace. Your tools.</span>
   </div>
   <div class="folder-bar">
     <div class="folder-meta">
@@ -71,16 +330,16 @@
     </div>
   </div>
   <p id="copy-status" class="source-note" role="status"></p>
-  <p class="start-hint">Run checks, edits, and agent prompts in your terminal and editor. This companion reads materials and keeps notes; it does not execute code or alter files. Choose a workflow habit and what you expect from it. Work with your agent, notice what happened, and decide what to keep, change, or explore.</p>
+  <div class="case-start"><p class="start-hint">Open the repository or this case folder in your agent. Read the task below, then work as you normally would. Run checks in the case folder; this page does not run code.</p><button type="button" id="copy-start-prompt">Copy a prompt for your agent</button><details id="prompt-disclosure"><summary>Read the optional prompt</summary><p id="case-prompt"></p></details><a class="notes-shortcut" href="#notebook-disclosure" id="go-to-notes">Go to notes</a></div>
   <div class="work-grid">
     <section class="material-pane" aria-labelledby="material-title">
-      <div class="pane-heading"><h2 id="material-title">The material</h2><span>Read → try → assess</span></div>
-      <p class="source-note">Snapshot at packaging. Changed code and the files in your folder remain authoritative.</p>
+      <div class="pane-heading"><h2 id="material-title">Case material</h2></div>
+      <p class="source-note">These are the original materials. Your working files contain any changes you make.</p>
       <details open><summary>Task</summary><div class="source prose" id="task-content"></div></details>
       <details><summary>Visible contract</summary><div class="source prose" id="contract-content"></div></details>
       <div id="case-artifacts"></div>
       <div class="report-area">
-        <button type="button" id="report-toggle" aria-expanded="false">Open the next report</button>
+        <button type="button" id="report-toggle" aria-expanded="false" aria-controls="report-content" aria-describedby="report-note">Open the next report</button>
         <p id="report-note">If useful, preserve a decision or an inconclusive result first. This is a convention, not a lock.</p>
         <div class="source prose" id="report-content" hidden></div>
       </div>
@@ -88,31 +347,34 @@
       <p id="case-record-note" class="source-note" hidden></p>
     </section>
     <section class="notebook-pane" aria-labelledby="notebook-title">
-      <div class="pane-heading"><h2 id="notebook-title">My lab note</h2><span>Keep / change / stop</span></div>
+      <details id="notebook-disclosure" class="notebook-disclosure">
+      <summary><span class="notebook-summary-title" id="notebook-title">Your notes</span> <span class="notebook-summary-help" id="notebook-summary-help">Optional. Write a short reflection whenever you’re ready.</span></summary>
+      <div class="notebook-content">
       <p class="source-note">Use this <em>or</em> RESULT.md. Your agent can help phrase your thoughts, but your habits and decisions come from you. An inconclusive result is valid.</p>
       <p class="material-shortcut"><button type="button" id="open-example">See a decision example</button></p>
-      <p id="notebook-storage-status" class="source-note storage-feedback" role="status"></p>
+      <p id="notebook-storage-status" class="source-note storage-feedback"></p>
       <div id="note-fields"></div>
       <button type="button" id="save-snapshot" class="primary">Preserve this decision</button>
       <p class="source-note">Save before assessing NEXT.md to keep an earlier decision or inconclusive result. If you or your agent saw it early, record that exposure in your note. A snapshot does not prove independent reasoning.</p>
-      <div id="snapshot-list" aria-live="polite"></div>
+      <div id="snapshot-list"></div>
+      </div></details>
     </section>
   </div>
 </section>
 <section id="view-library" hidden>
-  <div class="case-heading"><div><h1>Take what is useful.</h1><p>Sample prompts, commands, sources and experiments for another hour — or three.</p></div></div>
+  <div class="case-heading"><div><h1>Guides &amp; prompts</h1><p>Use these whenever they help. You can return to your case at any time.</p></div></div>
   <nav id="document-nav" class="document-nav" aria-label="Materials"></nav>
   <h2 id="document-title" tabindex="-1"></h2>
   <p id="document-note" class="source-note" hidden></p>
   <div class="source prose library-source" id="document-content"></div>
 </section>
 <section class="save-bar" aria-labelledby="save-title">
-  <div><h2 id="save-title">Take your thinking with you.</h2><p id="storage-status" role="status">Checking optional browser storage…</p><p class="source-note">Browser notes do not update RESULT.md. Export before moving or closing this copy. Keep private logs and secrets out of notes.</p></div>
+  <div><h2 id="save-title">Save and return later</h2><p id="storage-status">Checking optional browser storage…</p><p class="source-note">Browser notes do not update RESULT.md. Export before moving or closing this copy. Keep private logs and secrets out of notes.</p></div>
   <div class="save-actions"><button type="button" id="export-md">Export readable notes</button><button type="button" id="export-json">Export backup (.json)</button><label class="file-button" for="import-file">Import backup<input id="import-file" type="file" accept="application/json,.json"></label></div>
   <div id="import-preview" hidden><p id="import-summary"></p><button type="button" id="confirm-import">Replace notebook with this backup</button><button type="button" id="cancel-import">Cancel import</button></div>
 </section>
 <p id="notice" role="status" aria-live="polite"></p>
-<footer class="page-footer"><span>One observation beats an unsupported conclusion.</span><span id="content-version"></span></footer>
+<footer class="page-footer"><span>Work at your own pace.</span><span id="content-version"></span></footer>
 </main>
 </div>
 <noscript><p class="no-script">JavaScript is disabled. Open <a href="START-HERE.md">START-HERE.md</a> and use each folder's RESULT.md. All exercises remain available.</p></noscript>
@@ -187,7 +449,7 @@
       return 'The notebook format is not supported.';
     }
     if (value.content_version !== data.contentVersion) {
-      return 'This file belongs to a different packet version. Import was not applied; keep the JSON as your record.';
+      return 'This file belongs to a different packet version. Import was not applied; keep the JSON as your record. If you have the earlier copy, open it to export readable notes and transfer them yourself.';
     }
     const ids = data.cases.map((item) => item.id);
     if (!exactKeys(value.cases, ids)) return 'The case list does not match this packet.';
@@ -213,9 +475,10 @@
 
   function notice(message) { $('#notice').textContent = message; }
   function storageMessage(message) {
-    const full = message + ' Browser saving is best effort: simultaneous tabs or copies can overwrite changes before a conflict is detected. Export often.';
-    $('#storage-status').textContent = full;
-    $('#notebook-storage-status').textContent = full;
+    const full = message + ' Another tab can overwrite notes; export a backup.';
+    for (const id of ['#storage-status', '#notebook-storage-status']) {
+      if ($(id).textContent !== full) $(id).textContent = full;
+    }
   }
 
   let state = freshState();
@@ -228,22 +491,26 @@
       if (issue) throw new Error(issue);
       state = parsed;
     }
-    storageMessage('Notes are saved in this browser for this packet version. Export before moving to or updating the packet: another content version uses separate storage.');
+    storageMessage('Notes are saved in this browser for this packet. Before updating, export readable notes and keep this copy; other versions use separate storage.');
   } catch (error) {
     storageAvailable = false;
     storageMessage('Browser storage could not be read safely. Your current notes are in memory only; export them before closing. Existing stored data was not replaced.');
+    notice('Browser storage could not be read safely. Export notes before closing.');
   }
 
   function persist() {
-    if (conflict || !storageAvailable) return;
+    updateNotebookSummary();
+    if (conflict || !storageAvailable) return false;
     try {
       const encoded = JSON.stringify(state);
       if (encoded.length > maxFileBytes) throw new Error('Notebook too large');
       localStorage.setItem(storageKey, encoded);
-      storageMessage('Saved in this browser for this packet version. Export before moving to or updating the packet: another content version uses separate storage.');
+      return true;
     } catch (error) {
       storageAvailable = false;
       storageMessage('Browser storage failed or the notebook is too large. Your current notes are in memory only; export them before closing.');
+      notice('Browser storage failed or the notebook is too large. Export notes before closing.');
+      return false;
     }
   }
 
@@ -326,13 +593,17 @@
       if (!navigator.clipboard || !navigator.clipboard.writeText) throw new Error('Clipboard unavailable');
       await navigator.clipboard.writeText(text);
       feedback.textContent = message || 'Copied to clipboard.';
+      return true;
     } catch (error) {
+      const disclosure = selectable.closest('details');
+      if (disclosure) disclosure.open = true;
       const range = document.createRange();
       range.selectNodeContents(selectable);
       const selection = window.getSelection();
       selection.removeAllRanges();
       selection.addRange(range);
       feedback.textContent = 'Clipboard unavailable. Text is selected; copy it with your usual keyboard shortcut.';
+      return false;
     }
   }
 
@@ -434,16 +705,18 @@
         button.type = 'button';
         button.dataset.caseId = item.id;
         button.append(element('small', item.description));
-        if (item.hasNext) {
-          button.append(element('span', 'NEXT.md report', 'case-badge'));
-        }
         button.setAttribute('aria-current', item.id === currentCase ? 'page' : 'false');
         button.addEventListener('click', () => {
           currentCase = item.id;
           reportOpen = false;
           renderCase();
           activateView('work');
-          container.querySelector('[data-case-id="' + item.id + '"]').focus();
+          if (window.matchMedia('(max-width: 680px)').matches) {
+            $('#case-title').focus({ preventScroll: true });
+            $('#case-title').scrollIntoView({ block: 'start' });
+          } else {
+            container.querySelector('[data-case-id="' + item.id + '"]').focus();
+          }
         });
         group.append(button);
       }
@@ -494,6 +767,15 @@
     container.append(context);
   }
 
+  function updateNotebookSummary() {
+    const entry = state.cases[currentCase];
+    const hasNotes = entry.snapshots.length > 0 || Boolean(entry.version.trim()) ||
+      Object.values(entry.draft).some((value) => value.trim());
+    $('#notebook-summary-help').textContent = hasNotes
+      ? 'Notes for this case are here. Open to continue.'
+      : 'Optional. Write a short reflection whenever you’re ready.';
+  }
+
   function renderSnapshots() {
     const entry = state.cases[currentCase];
     const list = $('#snapshot-list');
@@ -539,8 +821,17 @@
     if (reportOpen && item.hasNext) renderMarkdown($('#report-content'), item.next, item.path + '/NEXT.md');
     else $('#report-content').replaceChildren();
     $('#report-note').textContent = item.hasNext
-      ? 'Exposure recorded by this notebook: ' + entry.report_exposure + '. It cannot detect access in files or by your agent. Opening before a snapshot may be early exposure. A snapshot alone does not establish independence; record any earlier exposure in your notes.'
+      ? reportOpen
+        ? 'This notebook records: ' + entry.report_exposure + '. It cannot detect access outside this page; note any earlier exposure separately.'
+        : 'You can save an initial decision first. If you or your agent already read the report, note that.'
       : 'This case has no NEXT report.';
+  }
+
+  function startPrompt(item) {
+    return 'Help me work through the ' + item.title + ' case. If the repository root is open, start with ' +
+      item.path + '/TASK.md; if the case folder is open, start with TASK.md in that folder. ' +
+      'Use your normal tools and capabilities. ' +
+      'Help me understand the task and evidence; let me choose my workflow habit, expectation and decisions.';
   }
 
   function renderCase() {
@@ -550,6 +841,8 @@
     if (nextBadge) nextBadge.hidden = !item.hasNext;
     $('#case-description').textContent = item.description;
     $('#case-path').textContent = item.path;
+    $('#case-prompt').textContent = startPrompt(item);
+    $('#prompt-disclosure').open = false;
     const copyStatus = $('#copy-status');
     if (copyStatus) copyStatus.textContent = '';
     renderMarkdown($('#task-content'), item.task, item.path + '/TASK.md');
@@ -581,6 +874,7 @@
     renderFields();
     renderSnapshots();
     renderReport();
+    updateNotebookSummary();
   }
 
   function renderDocuments() {
@@ -611,6 +905,15 @@
 
   $('#open-example').addEventListener('click', () => showDocument('example'));
 
+  $('#go-to-notes').addEventListener('click', (event) => {
+    event.preventDefault();
+    const notebook = $('#notebook-disclosure');
+    notebook.open = true;
+    const summary = notebook.querySelector('summary');
+    summary.focus({ preventScroll: true });
+    summary.scrollIntoView({ block: 'start' });
+  });
+
   $('#report-toggle').addEventListener('click', () => {
     const entry = state.cases[currentCase];
     reportOpen = !reportOpen;
@@ -629,14 +932,19 @@
     }
     entry.snapshots.push({ saved_at: new Date().toISOString(), version: entry.version,
       report_exposure: entry.report_exposure, draft: { ...entry.draft } });
-    persist();
+    const stored = persist();
     renderSnapshots();
-    notice('Snapshot saved; the draft remains editable.');
+    notice(stored ? 'Snapshot saved; the draft remains editable.'
+      : 'Snapshot is in this tab only. Export your notes before closing.');
   });
 
   $('#copy-path').addEventListener('click', () => {
     const item = caseMap.get(currentCase);
     copyText(item.path, $('#case-path'), $('#copy-status'), 'Copied folder path "' + item.path + '" to clipboard.');
+  });
+  $('#copy-start-prompt').addEventListener('click', () => {
+    const item = caseMap.get(currentCase);
+    copyText(startPrompt(item), $('#case-prompt'), $('#copy-status'), 'Starting prompt copied for ' + item.title + '.');
   });
   const copyCommand = $('#copy-command');
   if (copyCommand) {
@@ -721,6 +1029,7 @@
       const count = Object.values(parsed.cases).reduce((sum, entry) => sum + entry.snapshots.length, 0);
       $('#import-summary').textContent = 'Ready to replace this tab’s notebook with ' + data.cases.length + ' cases and ' + count + ' snapshots from packet ' + parsed.content_version + '. Export your current notes first if you need to keep them.';
       $('#import-preview').hidden = false;
+      notice('Backup ready to review. Nothing has been replaced.');
     } catch (error) {
       if (generation !== importGeneration) return;
       notice('Import not applied: ' + (error.message || 'Could not read file.'));
@@ -735,11 +1044,13 @@
     reportOpen = false;
     persist();
     renderCase();
+    $('#notebook-disclosure').open = true;
     notice(conflict || !storageAvailable
       ? 'Imported into this tab’s memory. Browser autosave is unavailable; export before closing.'
       : 'Imported notebook and saved it in this browser.');
+    $('#import-file').focus();
   });
-  $('#cancel-import').addEventListener('click', () => { closePreview(); notice('Import cancelled; notes were not changed.'); });
+  $('#cancel-import').addEventListener('click', () => { closePreview(); notice('Import cancelled; notes were not changed.'); $('#import-file').focus(); });
 
   function activateView(selected) {
     for (const tab of document.querySelectorAll('[data-view]')) {
@@ -753,7 +1064,7 @@
   }
 
   $('#content-version').textContent = data.contentVersion;
-  $('#case-choice-hint').textContent = data.cases[0].title + ' is displayed to start; choose any case. A single complete decision loop is useful progress.';
+  $('#case-choice-hint').textContent = data.cases[0].title + ' is shown first. Choose any case.';
   $('#repo-access').hidden = !['http:', 'https:'].includes(location.protocol);
   renderCase();
   renderDocuments();
