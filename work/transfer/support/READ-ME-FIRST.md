@@ -1,7 +1,8 @@
 # Optional case support
 
-Some code folders include `support/READ-ME-FIRST.md`, `support/SCENARIO.md`, `support/probe.py` and `support/observation.json`. They offer one bounded scenario and an observation of an earlier run of the original case. Use them after recording your own current decision or “inconclusive / no evidence.” For any review case, first assess the `NEXT.md` report too. These are optional aids, not an answer key.
+Some cases include `support/READ-ME-FIRST.md`, `support/SCENARIO.md`, `support/probe.py`, and `support/observation.json`. Open `support/SCENARIO.md` and run `python3 support/probe.py .` (Windows: `py -3 support/probe.py .`) from your case folder to inspect one concrete scenario against your current code.
 
-Open `support/SCENARIO.md` in your case folder for the scenario and its exact probe command. Predict the outcome, then run the probe if Python works or inspect the captured observation. Compare the actual result with the visible contract, record its scope and remaining uncertainty, and decide the next move. A live probe tests the version you point it at; identify that version and save its output. The saved observation is from an earlier run of the original case, not evidence that your own changes pass, and supplies no time or cost for your work. Import or setup errors are not product findings.
+- A live `support/probe.py .` run tests whatever code is currently in this case folder; `support/observation.json` captures an earlier run of the unmodified case (and supplies no elapsed time or cost).
+- If `NEXT.md` is present and you want to preserve an uninfluenced first verdict, save your initial decision in `RESULT.md` or `index.html` before opening `NEXT.md`.
 
-Cases without support can still use their visible trace and contract. Record partial or inconclusive work and resume later. `HELP.md` explains recovery and preserving copies.
+Cases without `support/` can still be checked from `docs/trace.txt` and `docs/contract.md`. See `HELP.md` for recovery and preserving copies.

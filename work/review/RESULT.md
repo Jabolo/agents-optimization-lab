@@ -10,7 +10,7 @@ In a Git clone this file is tracked, so review staged changes before sharing a c
 - **What I tried or retained, and what I actually observed:** ___
   *(Include the command or evidence and the assessed version or copy. Separate actual output from a proposed check.)*
 - **Decision and uncertainty:** accept / reject / investigate / change approach / stop / inconclusive — ___
-- **My personal rule:** I will keep / change / stop ___ when ___, because I observed ___. If undecided, note what you would need to observe.
+- **My personal rule:** I will keep / change / stop / explore ___ when ___, because I observed ___. If undecided, note what you would need to observe.
 
 If there is a `NEXT.md`, preserve your current decision or inconclusive result before assessing it. Then note what you found and whether your decision changed. If you or your agent saw it early, record that exposure instead of inventing a prior decision.
 

@@ -12,14 +12,14 @@ Open `index.html` locally in your web browser (double-click the file or open `fi
 
 ### Terminal smoke check
 
-In a terminal opened at the local repository folder, choose a case and run its smoke check:
+If your terminal is at the repository root, `cd` into your chosen case first; if you are already inside the case folder, run `python3` / `py -3` directly:
 - **Core cases:** `work/integration`, `work/review`, `work/transfer`
 - **Exploration cases:** `explore/warmup`, `explore/combined`, `explore/review-1`, `explore/review-3`
 
 On macOS / Linux:
 
 ```sh
-cd work/integration   # or work/review, work/transfer, explore/warmup, etc.
+cd work/integration   # skip if already inside your chosen case folder
 python3 --version     # Python 3.11+ recommended
 python3 smoke.py
 ```
@@ -27,7 +27,7 @@ python3 smoke.py
 On Windows (PowerShell or Command Prompt):
 
 ```powershell
-cd work\integration   # or work\review, work\transfer, explore\warmup, etc.
+cd work\integration   # skip if already inside your chosen case folder
 py -3 --version       # Python 3.11+ recommended
 py -3 smoke.py
 ```

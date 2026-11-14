@@ -1,13 +1,12 @@
 # Optional challenge — Combined reservation repairs
 
-This checkpoint combines a historical-response issue with a client/transport retry issue. Use its own `docs/trace.txt` and `docs/contract.md`. Choose one move you would actually use: obtain evidence, reproduce a regression, review a claim, change effort after a stated trigger, prepare a handoff, delegate a bounded question or reuse a verified script. Use your agent fully.
+Repair the combined historical-response and client/transport retry issues using `docs/trace.txt` and `docs/contract.md`. Pick one real workflow move to test (evidence before edits, regression reproduction, claim review, escalation trigger, handoff, delegation, or script reuse) and run `python3 smoke.py` (Windows: `py -3 smoke.py`).
 
-Record your own habit and prediction or choose a move for this attempt. State the condition and what a check would establish or falsify, inspect its actual output, then record your current accept/next-move decision or what remains undecided in the browser notebook or this case's `RESULT.md` (one record is enough). With no agent or runnable check, reason from the visible trace and contract, record partial work or “inconclusive / no evidence,” and resume later.
+> **Before opening `NEXT.md`:** Record your initial decision or `inconclusive / no evidence` in `index.html` or `RESULT.md` first, then assess `NEXT.md` separately as a new question. If your agent already opened `NEXT.md`, record that exposure instead of inventing a prior prediction.
 
-## Your agent has a result—what next?
+## Examine your workflow and decide what next
 
-Inspect what was actually checked, try a useful workflow move if it addresses an uncertainty, or explain why stopping is reasonable for your scope. [Prompt cards](PROMPT-CARDS.md) offer optional ideas. A second attempt is not required; if you compare approaches later, use fresh starts and the same checks as described in [EXTENSIONS.md](EXTENSIONS.md).
-
-Before opening `NEXT.md`, save that decision or uncertainty. Assess the report as a question, choose a further check or identify the missing observation, and record whether your decision changes and why. If your agent accessed it early, record that exposure; do not invent a pre-report prediction or decision. A repeatable observation supports a decision for the condition checked, not the full combined checkpoint. Stop when another check is not worth its effort, and resume with an independent condition.
-
-If delegating, count coordination and children in observed time/cost. For changed effort state an escalation trigger; for a handoff count preparation and rereading. Record actual evidence, a boundary, and a rule you would use in your own project. Usage not exposed is N/A.
+- **Habit & expectation:** Record *“Usually I ___ → I expect ___”* (or choose one move for this attempt), pick a contract condition, predict the result, and inspect real output. If delegating or escalating, count coordination or trigger overhead in observed time/cost (`unknown` / `N/A` if unavailable).
+- **Inspect evidence:** What did your checks verify against `docs/contract.md`, and what remains uncertain? Try [prompt card 2](PROMPT-CARDS.md) if useful.
+- **Try a workflow move:** If a gap remains, try one targeted observation or move ([prompt card 4](PROMPT-CARDS.md)) and notice what it added, repeated, or cost.
+- **Keep, change, stop, or explore:** Record your case decision (`accept / reject / investigate / stop / inconclusive`) and one workflow rule you will **keep, change, stop, or explore** next. A second run is optional; see [EXTENSIONS.md](EXTENSIONS.md) for fair comparisons.

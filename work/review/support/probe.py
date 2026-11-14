@@ -1,4 +1,4 @@
-"""Run: python3 probe.py /path/to/checkpoint (Python 3.11+)."""
+"""Run from case folder: python3 support/probe.py . (or python3 probe.py /path/to/checkpoint; Python 3.11+)."""
 import json
 from pathlib import Path
 import sys

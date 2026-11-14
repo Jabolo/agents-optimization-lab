@@ -1,8 +1,8 @@
 # Integration — Which check is worth doing next?
 
-A response can be lost after the server commits. Repair `client.py` and `transport.py` according to `docs/contract.md`. Preserve ordinary bookings, retry limits, conflicts and independent requests. Use the deterministic local transport without a real network or sleeps. Fresh disposable databases only; no migration work. Add a regression for the reported behavior, do not weaken assertions to obtain a pass, and run public smoke.
+A response can be lost after the server commits. Repair `client.py` and `transport.py` to satisfy `docs/contract.md` while preserving ordinary bookings, retry limits, conflicts, and independent requests. Use the deterministic local transport (no real network or sleeps) and fresh disposable SQLite databases only (no migrations). Add a regression without weakening assertions, and run `python3 smoke.py` (Windows: `py -3 smoke.py`).
 
-Use your agent fully. Choose one workflow habit to watch—for example, your instructions, context, model, skill or delegation. Letting your agent decide is a valid choice too. In the browser notebook or this case's `RESULT.md` (one record is enough), record “Usually I ___ → I expect ___,” or choose a move for this attempt if you have no usual habit. Choose a business condition and a check that could establish it; predict what result would support acceptance. Inspect the actual output and record your current decision and uncertainty. A passing smoke, a regression and complete contract coverage are different claims.
+> **Before opening `NEXT.md`:** Record your initial decision or `inconclusive / no evidence` in `index.html` or `RESULT.md` first, then inspect `NEXT.md` separately as a new question to verify. If your agent already opened `NEXT.md`, record that exposure instead of inventing a prior prediction.
 
 ## Optional workflow idea
 
@@ -10,16 +10,7 @@ Repair the integration and add regression tests using your normal workflow. You 
 
 ## Examine your workflow and decide what next
 
-Choose a move for your current uncertainty:
-
-- **Inspect evidence:** What was actually checked, and what could still change your decision? Try [prompt card 2](PROMPT-CARDS.md) if useful.
-- **Try a workflow move:** If there is a gap, ask for one targeted observation or try another available approach. Predict what it could add, then inspect the actual result and extra effort. [Prompt card 4](PROMPT-CARDS.md) offers a way to choose the next move.
-- **Keep or stop:** If the result is sufficient for your scope, explain why another step is not worth it. An inconclusive result and next move are valid too.
-
-Look back at your chosen habit: what did it contribute, repeat or leave uncertain? Consider effort, time or cost where observable; unknown is fine. Repetition can still be useful, and you may not be able to tell what a single step contributed. Compare what happened with your expectation. A second attempt is optional; do not claim you compared approaches you did not run. To compare fairly later, use [extension 5](EXTENSIONS.md) with fresh starts and the same checks.
-
-## Assess the report
-
-Before opening `NEXT.md`, record your current decision or what remains undecided. If your check is unfinished or has no usable output, record the partial result or “inconclusive / no evidence” and your next move. Then assess the report as a question: choose whether another observation is worth its time, inspect any result, and retain or revise your decision separately. If your agent accessed the report early, record that exposure; do not invent a pre-report prediction or decision.
-
-A reproducible observation of the chosen condition supports a decision for that scope; note what remains unchecked. Stop when another observation is not worth its cost, and resume with a different legal failure sequence. The optional `support/READ-ME-FIRST.md` describes a bounded scenario and prior observation after your own decision or inconclusive result.
+- **Habit & expectation:** Record *“Usually I ___ → I expect ___”* in `index.html` or `RESULT.md` (or let your agent decide / pick one move for this attempt). Name a contract condition, choose a check, and predict what it should show—`smoke.py` covers only its examples.
+- **Inspect evidence:** What was actually executed against `docs/contract.md`, and what remains uncertain? Try [prompt card 2](PROMPT-CARDS.md) or optional `support/READ-ME-FIRST.md` (`python3 support/probe.py .`) to probe the reported failure.
+- **Try a workflow move:** If a gap remains, try one targeted observation or move ([prompt card 4](PROMPT-CARDS.md)) and notice what it added, repeated, or cost (`unknown` is fine).
+- **Keep, change, stop, or explore:** When another step is not worth its effort, record your case decision (`accept / reject / investigate / stop / inconclusive`) and one workflow rule you will **keep, change, stop, or explore** next. A second run is optional; use [extension 5](EXTENSIONS.md) for fair side-by-side comparisons.
