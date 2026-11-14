@@ -1,4 +1,4 @@
-# Transfer — Agenda export
+# Transfer: Agenda export — Is this release candidate ready?
 
 Assess the proposed agenda-export ordering in `agenda.py` against `docs/ticket.md` and `docs/contract.md`. A patch is optional; if you modify `agenda.py`, state clearly whether your decision assesses the original proposal or your edited version. Run `python3 smoke.py` (Windows: `py -3 smoke.py`); this case has no `NEXT.md`.
 

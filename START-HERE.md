@@ -11,13 +11,17 @@ the repository URL below and try this optional prompt:
 
 ```text
 Help me start The Agents Optimization Lab from START-HERE.md. If I haven't
-chosen a case, start with work/integration. Briefly explain the task, work
-with me using your usual capabilities, and show me the checks and their
-actual results. Help me decide what to do next.
+chosen a case, start with work/integration. Before editing code, ask me what
+workflow habit I want to watch and what I expect (or let me skip the note).
+Start with TASK.md and docs/contract.md first, show me the checks and their
+actual output, and save NEXT.md for our second step after we review the
+initial result.
 ```
 
-Use your own words or choose any other case. One useful question to keep in
-mind: **What would make me comfortable accepting this result?**
+Use your own words or choose any other case. Writing the habit and expectation
+down is optional; considering them helps you notice what your workflow added.
+One useful question to keep in mind: **What would make me comfortable accepting
+this result?**
 
 1. **Give your coding agent the repository URL** `https://github.com/Jabolo/agents-optimization-lab` and ask it to get a local copy and guide you from `START-HERE.md`. Or set it up yourself:
    - Clone with Git:

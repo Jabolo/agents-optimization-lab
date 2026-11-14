@@ -39,7 +39,7 @@ your normal tools. Run checks appropriate to the change, and show their actual
 results and what remains uncertain. Identify which version you assessed.
 ```
 
-**Look for:** a result connected to the task and observed checks. A fluent explanation alone is not a runtime observation. If NEXT.md or support was read early, record it rather than reconstructing an earlier prediction. The prompt does not guarantee correctness or prevent early exposure.
+**Look for:** real command output, not just a confident explanation, tied directly to the task. If NEXT.md or support was read early, note that instead of reconstructing an earlier prediction—a starter prompt shapes how you begin, not what the agent already saw.
 
 ## 2. The agent says it is done
 
@@ -51,7 +51,7 @@ What important uncertainty remains? If another check is worth the remaining
 time, choose and run a small one; otherwise explain why stopping is reasonable.
 ```
 
-**Look for:** inspectable output and an honest boundary on the decision. Repeating the same green check is useful only if it answers a new question, such as whether it still applies to a changed version. You need not demand another check after a sufficient result.
+**Look for:** actual command output and a clear scope for your decision. Re-running the same passing check only helps if you changed the code or need to answer a new question; once you have enough evidence, stopping is fine.
 
 ## 3. A review claim needs assessment
 
@@ -65,7 +65,7 @@ Decide separately what this establishes about the claim and about accepting
 the entire proposal. Do not assume a defect must exist.
 ```
 
-**Look for:** a justified claim assessment, not a quota of findings. An unsupported comment and a separately defective proposal can coexist; rejecting a comment does not clear the whole change. A fresh reviewer is an option, not a guarantee of independent evidence.
+**Look for:** real evidence for or against the specific claim, not a quota of findings. A wrong review comment does not clear the rest of the change, and a separate bug can exist alongside it. Asking a fresh reviewer is optional—inspect what it actually found rather than assuming it caught everything.
 
 ## 4. We are looping or considering a stronger setup
 
@@ -79,7 +79,7 @@ it and show the actual result, its limits and any extra effort. If another
 step is not worthwhile, explain why. Do not invent timing, usage or cost.
 ```
 
-**Look for:** a different source of useful information, or a reasoned stop. Did this move add decision-relevant evidence, duplicate what the agent already did, or cost more effort than it was worth? More effort, a different model, a skill, a tool call or a subagent may help or add overhead. Change a setting yourself where your client requires it; do not treat an agent's claim about a setting as verified configuration.
+**Look for:** genuinely new information or a clear reason to stop. Did this move tell you something new, repeat what the agent already showed, or add more overhead than value? More effort, another model, a skill, a tool call, or a subagent can help or slow you down. If you want to change a client setting, check and change it yourself rather than assuming the agent changed it.
 
 | Choice to inspect | A question worth testing |
 | --- | --- |
@@ -160,4 +160,4 @@ Windows: `py -3 -m unittest discover -s tests -p "test_*.py" -v`. A zero-test ru
 
 ## Why these examples are short
 
-[Google's prompt design guide](https://ai.google.dev/gemini-api/docs/prompting-strategies) treats clear instructions, context and examples as starting points to iterate using observed responses. It is product guidance, not proof that a particular wording improves every coding agent. [Anthropic's agent-evaluation guide](https://www.anthropic.com/research/demystifying-evals-for-ai-agents) emphasizes observing results and execution traces; it does not require building an evaluation platform for this lab. The examples above are our unvalidated lab scaffolding. Keep, adapt or discard them based on what they do in your own attempt.
+[Google's prompt design guide](https://ai.google.dev/gemini-api/docs/prompting-strategies) treats clear instructions, context and examples as starting points to iterate using observed responses. It is product guidance, not proof that a particular wording improves every coding agent. [Anthropic's agent-evaluation guide](https://www.anthropic.com/research/demystifying-evals-for-ai-agents) emphasizes observing results and execution traces; it does not require building an evaluation platform for this lab. These prompts are optional starting templates, not proven recipes—keep, adapt, or drop them based on what actually helps in your run.

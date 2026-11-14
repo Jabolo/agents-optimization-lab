@@ -1,4 +1,4 @@
-# Optional challenge — Combined reservation repairs
+# Combined reservation repairs — Which workflow move pays for its effort?
 
 Repair the combined historical-response and client/transport retry issues using `docs/trace.txt` and `docs/contract.md`. Pick one real workflow move to test (evidence before edits, regression reproduction, claim review, escalation trigger, handoff, delegation, or script reuse) and run `python3 smoke.py` (Windows: `py -3 smoke.py`).
 

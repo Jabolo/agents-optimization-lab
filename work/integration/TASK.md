@@ -10,7 +10,7 @@ Repair the integration and add regression tests using your normal workflow. You 
 
 ## Examine your workflow and decide what next
 
-- **Habit & expectation:** Record *“Usually I ___ → I expect ___”* in `index.html` or `RESULT.md` (or let your agent decide / pick one move for this attempt). Name a contract condition, choose a check, and predict what it should show—`smoke.py` covers only its examples.
+- **Habit & expectation:** Record *“Usually I ___ → I expect ___”* in `index.html` or `RESULT.md` (or let your agent decide / pick one move for this attempt). Name a contract condition, choose a check, and predict what it should show—`smoke.py` covers only its examples, not boundaries like lost-response retries (`["after", "ok"]`), exhausted retries (`["before", "before"]`), key conflicts, or invalid `max_attempts` (such as `0` or `True`).
 - **Inspect evidence:** What was actually executed against `docs/contract.md`, and what remains uncertain? Try [prompt card 2](PROMPT-CARDS.md) or optional `support/READ-ME-FIRST.md` (`python3 support/probe.py .`) to probe the reported failure.
 - **Try a workflow move:** If a gap remains, try one targeted observation or move ([prompt card 4](PROMPT-CARDS.md)) and notice what it added, repeated, or cost (`unknown` is fine).
 - **Keep, change, stop, or explore:** When another step is not worth its effort, record your case decision (`accept / reject / investigate / stop / inconclusive`) and one workflow rule you will **keep, change, stop, or explore** next. A second run is optional; use [extension 5](EXTENSIONS.md) for fair side-by-side comparisons.
