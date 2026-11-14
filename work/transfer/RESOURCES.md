@@ -2,6 +2,15 @@
 
 These resources support your own decisions in **The Agents Optimization Lab**. No reading is required: the packet's offline contract, traces and help materials are enough to work through the lab. You may use your coding agent throughout, including to explain a source or help run a check. The links need internet access; none requires a new account, tool or dependency for the suggested experiments.
 
+## Take home: choose a question
+
+Save these for later, or open one when it helps. They are guidance to explore, not proof that a particular practice will improve your task.
+
+- **Why can a retry create trouble?** [AWS: Making retries safe with idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/) explains request identity and retry design; the lab's own contract defines its behavior.
+- **How might I improve a prompt?** [Google: Prompt design strategies](https://ai.google.dev/gemini-api/docs/prompting-strategies) suggests clear instructions and iteration; its examples target Gemini.
+- **How could I evaluate an agent workflow?** [Anthropic: Demystifying evals for AI agents](https://www.anthropic.com/research/demystifying-evals-for-ai-agents) introduces outcomes, traces and evaluation choices; no evaluation platform is required here.
+- **How could I test a reusable skill?** [OpenAI: Testing Agent Skills Systematically](https://developers.openai.com/blog/eval-skills) describes evaluating Codex skill behavior, including whether a skill is used. You can try the idea with a plain prompt and your existing agent.
+
 For a useful comparison, first record your usual move or chosen approach, what you expect and what observation would support a decision. Then inspect the available report or trace, run a check and record what happened and what remains uncertain. This is an agreed order for the experiment, not a restriction: if you read a report early, simply record that when interpreting your result. Save actual output and identify the copy or version it came from. Report elapsed time if known and cost only if reliably visible; otherwise say unknown or N/A.
 
 ## Find a source by question

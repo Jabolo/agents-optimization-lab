@@ -4,5 +4,6 @@ Some cases include `support/READ-ME-FIRST.md`, `support/SCENARIO.md`, `support/p
 
 - A live `support/probe.py .` run tests whatever code is currently in this case folder; `support/observation.json` captures an earlier run of the unmodified case (and supplies no elapsed time or cost).
 - If `NEXT.md` is present and you want to preserve an uninfluenced first verdict, save your initial decision in `RESULT.md` or `index.html` before opening `NEXT.md`.
+- For `explore/review-1`, the support scenario overlaps the later report. Assess `NEXT.md` first if you want to assess that claim without seeing the scenario. Support is optional; if it or the report was already read, record the exposure.
 
 Cases without `support/` can still be checked from `docs/trace.txt` and `docs/contract.md`. See `HELP.md` for recovery and preserving copies.

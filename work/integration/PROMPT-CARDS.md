@@ -1,6 +1,18 @@
 # Prompts for useful moments
 
-These prompt cards are optional scaffolding for common workshop moments — use, adapt, or ignore them. They are not required steps, and they contain no spoilers. If your usual prompt or workflow is already working, stick with it.
+These hints and prompt cards are optional — use, adapt, or ignore them. If your usual workflow is already working, stick with it. Use your agent fully and work at your own pace.
+
+## Need a hint?
+
+Pick the smallest helpful next move. Your agent can help with any of these; you decide what the observation means.
+
+- **I don't understand the task:** Ask your agent: “Explain this case briefly. What outcome are we trying to establish?”
+- **I don't know what to check:** Choose one condition in `docs/contract.md`. Ask: “What small check could tell us about this condition, and what would it leave open?”
+- **My agent says it is done:** Ask: “What did you actually check on this version? Show me the result and what remains uncertain.” Card 2 below has a longer version.
+- **I'm stuck or want an example:** In cases with `support/`, read the chosen case's `support/READ-ME-FIRST.md` for a scenario and runnable probe. The live probe checks your current copy; the saved observation is from an earlier run. If you or your agent saw a report or support early, note that exposure rather than inventing an earlier prediction.
+- **My agent finished quickly:** Ask: “What evidence would change my decision, and is another check worth the effort?” Or stop with a scoped decision.
+
+For setup or a fresh copy, see [HELP.md](HELP.md). For an example of a short decision, see [DECISION-EXAMPLE.md](DECISION-EXAMPLE.md). A partial or inconclusive result is useful; you do not need to use every hint.
 
 This lab is a retrospective on your tools and thinking, using real task results as evidence. Start with the workflow you actually use. When you notice a gap, choose a card, adapt it or use your own words. If your agent already does the useful work, an extra instruction may add nothing.
 

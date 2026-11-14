@@ -6,6 +6,19 @@ This repository is a self-contained Python 3.11+ / SQLite conference-booking and
 
 ## Start here
 
+**Not sure where to begin?** Start with Integration. Give your coding agent
+the repository URL below and try this optional prompt:
+
+```text
+Help me start The Agents Optimization Lab from START-HERE.md. If I haven't
+chosen a case, start with work/integration. Briefly explain the task, work
+with me using your usual capabilities, and show me the checks and their
+actual results. Help me decide what to do next.
+```
+
+Use your own words or choose any other case. One useful question to keep in
+mind: **What would make me comfortable accepting this result?**
+
 1. **Give your coding agent the repository URL** `https://github.com/Jabolo/agents-optimization-lab` and ask it to get a local copy and guide you from `START-HERE.md`. Or set it up yourself:
    - Clone with Git:
      ```sh
@@ -34,7 +47,7 @@ Everything is available from the start—pick any case that fits your interest:
 
 ## Guides and optional resources
 
-- **[PROMPT-CARDS.md](PROMPT-CARDS.md)**: Targeted prompts for moments like *"done"*, a disputed claim, or a stalled run.
+- **[PROMPT-CARDS.md](PROMPT-CARDS.md)**: Start with “Need a hint?” for a short next move, or use the longer prompts for moments like *"done"*, a disputed claim, or a stalled run.
 - **[DECISION-EXAMPLE.md](DECISION-EXAMPLE.md)**: Worked examples of what a crisp workflow note and bounded check look like.
 - **[SAVE-RESUME.md](SAVE-RESUME.md)** and **[HELP.md](HELP.md)**: Exporting browser notes, recovering from setup issues, or creating clean copies for follow-up runs.
 - **[RESOURCES.md](RESOURCES.md)** and **[EXTENSIONS.md](EXTENSIONS.md)**: Further reading plus fair side-by-side comparison protocols if you want a controlled second run later.
